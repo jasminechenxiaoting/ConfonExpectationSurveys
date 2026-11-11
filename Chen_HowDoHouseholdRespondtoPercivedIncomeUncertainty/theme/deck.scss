@@ -1,0 +1,672 @@
+/*-- scss:defaults --*/
+
+// Explorable deck theme
+//
+// Colour encodes the argument and nothing else. Four semantic colours, named
+// generically here. Do not rename them: the classes below and the notes
+// reference depend on the names. Instead give each an alias in the topic's
+// own words in the :root block (--gain: var(--primary);) and paint the charts
+// with the aliases, so that whoever writes a chart writes the argument into it:
+//     --primary    the quantity the talk is about
+//     --contrast   its counterweight or the second component
+//     --actor-a    the first character or group
+//     --actor-b    the second
+// Everything else is paper and ink.
+
+$paper:      #FFFFFF;
+$paper-2:    #F7F7F7;
+$paper-3:    #ECECEC;
+$ink:        #1C2224;
+$ink-2:      #4B5457;
+$ink-3:      #667074;
+$line:       #C9CEC6;
+
+$primary:       #C4452A;
+$contrast:      #128F78;
+$actor-a:       #B8760A;
+$actor-b:       #3A63B8;
+$primary-soft:  #F2D9D2;
+$contrast-soft: #CFE9E2;
+$actor-a-soft:  #F1E3C6;
+$actor-b-soft:  #D6E0F4;
+
+// Three faces: a display grotesque for titles and labels, a serif narrator for
+// body text, a mono for numbers. Each has a system fallback so the deck
+// presents offline.
+$display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+$body:    "Newsreader", Georgia, "Times New Roman", serif;
+$mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+// reveal.js hooks
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $ink;
+$link-color-hover: $ink;
+$selection-bg: $primary-soft;
+$selection-color: $ink;
+
+$font-family-sans-serif: $body;
+$font-family-monospace: $mono;
+$presentation-font-size-root: 32px;
+$presentation-line-height: 1.45;
+
+$presentation-heading-font: $display;
+$presentation-heading-color: $ink;
+$presentation-heading-font-weight: 800;
+$presentation-heading-line-height: 1.08;
+$presentation-heading-letter-spacing: -0.02em;
+$presentation-h1-font-size: 2.4em;
+$presentation-h2-font-size: 1.3em;
+$presentation-h3-font-size: 1em;
+$presentation-h4-font-size: 0.85em;
+$presentation-title-slide-text-align: left;
+
+$code-block-font-size: 0.6em;
+
+/*-- scss:rules --*/
+
+/* The tokens as CSS variables, because the charts paint with var(--primary) etc. */
+:root {
+  --paper: #{$paper}; --paper-2: #{$paper-2}; --paper-3: #{$paper-3};
+  --ink: #{$ink}; --ink-2: #{$ink-2}; --ink-3: #{$ink-3}; --line: #{$line};
+  --primary: #{$primary}; --contrast: #{$contrast}; --actor-a: #{$actor-a}; --actor-b: #{$actor-b};
+  --primary-soft: #{$primary-soft}; --contrast-soft: #{$contrast-soft}; --actor-a-soft: #{$actor-a-soft}; --actor-b-soft: #{$actor-b-soft};
+  --focus: #{$actor-b};
+  --display: #{$display}; --body: #{$body}; --mono: #{$mono};
+  /* Topic aliases: one per token, in the topic's words. Charts use these. */
+  --spend: var(--primary);        /* consumption, and the precautionary cut */
+  --save: var(--contrast);        /* saving, the buffer */
+  --debt: var(--actor-a);         /* debt repayment, the other buffer */
+  --fog: var(--actor-b);          /* unknown probability: ambiguity */
+  --spend-soft: var(--primary-soft); --save-soft: var(--contrast-soft); --debt-soft: var(--actor-a-soft); --fog-soft: var(--actor-b-soft);
+}
+
+.reveal {
+  font-family: $body;
+  -webkit-font-smoothing: antialiased;
+
+  h1, h2, h3 { font-family: $display; font-weight: 800; letter-spacing: -0.02em; text-transform: none; text-wrap: balance; }
+  h2 { font-size: 1.3em; line-height: 1.08; margin: 0 0 0.6em; max-width: none; text-align: left; }
+  .slide h2 { border: 0; padding: 0; }
+
+  p { margin: 0.45em 0; line-height: 1.45; }
+  strong { font-weight: 500; color: $ink; }
+  em { font-style: italic; }
+  a { color: $ink; text-decoration: underline; text-decoration-color: $ink-3; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { background: $paper-3; color: $ink; }
+
+  ul, ol { margin: 0.4em 0; }
+  li { margin: 0.3em 0; }
+  ul li::marker { color: $line; }
+
+  .slide-number { font-family: $display; font-size: 0.45em; color: $ink-3; background: none; }
+  .progress { color: $ink; height: 4px; }
+  .footer { font-family: $display; font-weight: 500; font-size: 0.42em; color: $ink-3; letter-spacing: 0.01em; }
+}
+
+/* ---------- typographic roles ---------- */
+
+.reveal .eyebrow { margin: 0 0 0.5em; font: 500 0.42em $display; letter-spacing: 0.08em; text-transform: uppercase; color: $ink-3; }
+.reveal .q { display: block; font: 700 1.05em/1.25 $display; color: $ink; margin: 0.55em 0; text-wrap: balance; }
+.reveal .note { display: block; font-size: 0.82em; line-height: 1.45; color: $ink-2; border-left: 3px solid $line; padding-left: 12px; margin-top: 0.7em; }
+.reveal .live-note { display: block; font-size: 0.9em; line-height: 1.45; color: $ink; margin-top: 0.6em; min-height: 2.9em; }
+.reveal .source { display: block; font: 400 0.72em/1.4 $body; color: $ink-3; margin-top: 0.6em; }
+.reveal .num { font-family: $mono; font-variant-numeric: tabular-nums; font-size: 0.92em; }
+.reveal .primary-t  { color: $primary;  font-weight: 500; }
+.reveal .contrast-t { color: color-mix(in srgb, $contrast 80%, $ink); font-weight: 500; }
+.reveal .actor-a-t  { color: color-mix(in srgb, $actor-a 78%, $ink); font-weight: 500; }
+.reveal .actor-b-t  { color: $actor-b;  font-weight: 500; }
+.reveal .muted-t { color: $ink-3; }
+.reveal .kbd { font: 500 0.7em $mono; border: 1px solid $line; border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: $paper; }
+
+/* ---------- layouts: prose beside a stage, or stacked ---------- */
+
+.reveal .split { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 0 44px; align-items: start; }
+.reveal .split.even { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 28px; }
+.reveal .split.wide-left { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); }
+.reveal .split.center-v { align-items: center; }
+.reveal .rule { border: 0; border-top: 1px solid $line; margin: 0.8em 0; }
+.reveal .split.cols { gap: 0; align-items: start; }
+.reveal .prose + .split.cols, .reveal .split.cols + .prose { margin-top: 1em; }
+.reveal .split.cols > * { padding: 0 32px; }
+.reveal .split.cols > :first-child { padding-left: 0; }
+.reveal .split.cols > :last-child { padding-right: 0; border-left: 1px solid $line; }
+.reveal .split.cols img { display: block; width: 100%; height: auto; margin: 0 0 10px; }
+.reveal .colhead { display: block; font: 700 1.15em/1.2 $display; letter-spacing: -0.01em; color: $ink; margin: 0 0 0.35em; }
+.reveal .split > * { min-width: 0; }
+.reveal .stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.reveal .stack .prose { max-width: 1000px; }
+
+.reveal .prose { font-size: 0.72em; line-height: 1.4; }
+.reveal .prose p { margin: 0 0 0.6em; }
+.reveal .prose > :last-child, .reveal .prose > :last-child > :last-child { margin-bottom: 0; }
+.reveal .prose .q { font-size: 1.15em; }
+.reveal .prose .source { font-size: 0.78em; }
+
+/* ---------- the stage: a fixed box the charts fill ---------- */
+
+.reveal .stage { height: 440px; display: flex; flex-direction: column; gap: 8px; min-width: 0; position: relative; font-size: 15px; }
+.reveal .stage.tall { height: 500px; }
+.reveal .stack .stage { height: 380px; }
+.reveal .stack .stage.tall { height: 470px; }
+.reveal .stage > .chart-wrap { flex: 1 1 auto; min-height: 0; display: flex; justify-content: center; }
+.reveal .stage svg.chart { width: 100%; height: 100%; display: block; overflow: visible; }
+.reveal .stage .ctl { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.reveal .stage .ctl .ctl { display: contents; }
+.reveal .caption { font: 400 14px/1.4 $body; color: $ink-2; margin: 0; }
+.reveal .caption .num { color: $ink; }
+.reveal .caption.status { font-family: $display; font-weight: 500; color: $ink; }
+/* .terse stages drop their captions; carry the source line in the prose instead */
+.reveal .stage.terse .caption:not(.status) { display: none; }
+
+/* chart typography */
+.reveal .chart text { font: 500 12px $mono; fill: $ink-2; }
+.reveal .chart .axis line { stroke: $line; stroke-width: 1; }
+.reveal .chart .axis line.grid { stroke: $paper-3; }
+.reveal .chart .axis-label { fill: $ink-3; font-family: $display; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.reveal .chart .lbl { font: 700 13px $display; fill: $ink; paint-order: stroke; stroke: $paper; stroke-width: 3px; stroke-linejoin: round; }
+.reveal .chart .lbl.onbar { fill: $paper !important; stroke: none !important; }
+.reveal .chart .lbl-big { font: 800 24px $display; fill: $ink; }
+.reveal .chart .lbl-mono { font: 500 13px $mono; fill: $ink; }
+
+/* ---------- controls ---------- */
+
+.reveal .slider { display: grid; grid-template-columns: minmax(90px, auto) 1fr auto; align-items: center; gap: 10px; font: 500 14px $display; color: $ink-2; }
+.reveal .slider output { font: 500 14px $mono; color: $ink; min-width: 6ch; text-align: right; font-variant-numeric: tabular-nums; }
+.reveal input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 22px; margin: 0; background: transparent; cursor: ew-resize; }
+.reveal input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: $paper-3; border: 1px solid $line; }
+.reveal input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 18px; height: 16px; margin-top: -7px;
+  background: $ink; border: 0; border-radius: 0; clip-path: polygon(50% 0, 100% 42%, 100% 100%, 0 100%, 0 42%);
+}
+.reveal input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: $paper-3; border: 1px solid $line; }
+.reveal input[type=range]::-moz-range-thumb { width: 18px; height: 16px; background: $ink; border: 0; border-radius: 0; clip-path: polygon(50% 0, 100% 42%, 100% 100%, 0 100%, 0 42%); }
+.reveal input[type=range]:focus-visible { outline: none; }
+.reveal input[type=range]:focus-visible::-webkit-slider-thumb { background: $actor-b; }
+
+.reveal .toggle { display: inline-flex; align-items: center; gap: 8px; font: 500 14px $display; cursor: pointer; color: $ink; }
+.reveal .toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.reveal .toggle-track { width: 34px; height: 20px; border-radius: 999px; background: $paper-3; border: 1px solid $line; position: relative; transition: background 0.15s; flex: none; }
+.reveal .toggle-track::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: $paper; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: left 0.15s; }
+.reveal .toggle input:checked + .toggle-track { background: $primary; }
+.reveal .toggle input:checked + .toggle-track::after { left: 16px; }
+
+.reveal .chip { font: 500 14px $display; border: 1.5px solid $line; background: $paper; color: $ink; border-radius: 999px; padding: 5px 12px; cursor: pointer; transition: all 0.12s; }
+.reveal .chip:hover { border-color: $ink-3; }
+.reveal .chip[aria-pressed="true"] { background: $ink; color: $paper; border-color: $ink; }
+.reveal .btn { font: 700 14px $display; border: 1.5px solid $ink; background: $ink; color: $paper; border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.reveal .btn:hover { opacity: 0.9; }
+
+.reveal .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font: 500 13px $display; color: $ink-2; }
+.reveal .legend span::before { content: ""; display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 6px; background: var(--c, #{$ink}); vertical-align: -1px; }
+.reveal .legend .hatched::before { background: repeating-linear-gradient(106deg, var(--c) 0 1.4px, transparent 1.4px 3.6px), color-mix(in srgb, var(--c) 16%, transparent); }
+
+.reveal .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; min-height: 0; flex: 1 1 auto; }
+.reveal .bignum { font: 800 40px $display; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; color: $ink; }
+.reveal .bignum small { font: 500 13px $display; letter-spacing: 0.06em; text-transform: uppercase; color: $ink-3; display: block; margin-top: 8px; }
+
+/* two named cases side by side, each a glyph over a name */
+.reveal .two-up { flex: 1 1 auto; min-height: 0; display: flex; justify-content: space-around; align-items: flex-end; padding-bottom: 8px; }
+.reveal .two-up .case { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.reveal .two-up .case b { font: 800 28px $display; letter-spacing: -0.01em; }
+.reveal .two-up .case small { font: 500 13px $mono; color: $ink-2; }
+.reveal .two-up .case.actor-a b { color: $actor-a; }
+.reveal .two-up .case.actor-b b { color: $actor-b; }
+
+/* ---------- panels and cards ---------- */
+
+.reveal .panel { border: 1px solid $line; border-radius: 10px; padding: 12px 16px; background: $paper-2; display: flex; flex-direction: column; gap: 6px; min-height: 0; box-shadow: none; }
+.reveal .panel.quiet { background: transparent; }
+.reveal .panel.actor-a { border-left: 4px solid $actor-a; }
+.reveal .panel.actor-b { border-left: 4px solid $actor-b; }
+/* Small headings inside a slide are spans, not markdown headings: pandoc wraps a
+   heading in a <section> and reveal.js then treats the slide as a vertical stack. */
+.reveal .ph { display: block; font: 700 0.72em/1.2 $display; color: $ink; margin: 0 0 0.3em; }
+.reveal .panel .ph { margin: 0; }
+.reveal .stage .panel .ph { font-size: 14px; }
+.reveal .panel p { font-size: 0.66em; line-height: 1.45; margin: 0; }
+.reveal .prose .panel p { font-size: 1em; }
+.reveal .panel p + p { margin-top: 0.4em; }
+.reveal .stage .panel svg.chart { flex: 1 1 auto; min-height: 0; }
+
+.reveal .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0.4em 0 0.7em; }
+.reveal .stats.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.reveal .stats.col { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.reveal .stat { background: $paper-2; border: 1px solid $line; border-radius: 10px; padding: 16px 18px; }
+.reveal .stat p { margin: 0; }
+.reveal .stat .k { display: block; font: 800 1.45em/1 $display; letter-spacing: -0.02em; color: $primary; font-variant-numeric: tabular-nums; }
+.reveal .stat .k.c { color: $contrast; }
+.reveal .stat .k.a { color: $actor-a; }
+.reveal .stat .k.b { color: $actor-b; }
+.reveal .stat .k.f { color: $ink; }
+.reveal .stat .l { display: block; margin-top: 10px; font: 400 0.5em/1.4 $body; color: $ink-2; }
+.reveal .prose .stat .k { font-size: 1.9em; }
+.reveal .prose .stat .l { font-size: 0.8em; }
+.reveal .prose .stat { padding: 14px 16px; }
+
+/* ---------- the claim list: numbered, one idea each ---------- */
+
+.reveal .claims ul, .reveal .claims ol { list-style: none; margin: 0; padding: 0; counter-reset: claim; }
+.reveal .claims li { position: relative; padding-left: 2.1em; margin: 0 0 0.6em; font-size: 0.78em; line-height: 1.4; }
+.reveal .claims li::before { content: counter(claim); counter-increment: claim; position: absolute; left: 0; top: -0.08em; font: 800 1.4em/1 $display; color: $ink-3; }
+.reveal .prose .claims li { font-size: 1em; }
+
+/* A hand-written formula, for decks that must work with no network at all. */
+.reveal .eq { font-family: $mono; font-size: 0.68em; text-align: center; color: $ink; margin: 0.6em 0; }
+.reveal .eq sub, .reveal .eq sup { font-size: 0.7em; }
+
+/* ---------- tables ---------- */
+
+.reveal table { font: 400 0.5em $display; border-collapse: collapse; margin: 0.6em 0; }
+.reveal table th { font-weight: 500; font-size: 0.85em; letter-spacing: 0.04em; text-transform: uppercase; color: $ink-3; border-bottom: 1px solid $line; text-align: left; padding: 0.4em 0.8em 0.4em 0; }
+.reveal table td { border-bottom: 1px solid $line; padding: 0.4em 0.8em 0.4em 0; vertical-align: top; font-variant-numeric: tabular-nums; }
+.reveal table tr:last-child td { border-bottom: 0; }
+
+/* ---------- the source's own figures ---------- */
+
+.reveal .slide img, .reveal p img { background: none; border: 0; box-shadow: none; margin: 0; }
+/* Converted figures are blended into the paper so their white plot box disappears.
+   Raster figures (photos, screenshots, anything with a dark ground) must not be: .raster. */
+.reveal .figwrap img { mix-blend-mode: multiply; }
+.reveal .figwrap.raster img { mix-blend-mode: normal; }
+.reveal .figwrap { display: flex; justify-content: center; gap: 16px; }
+.reveal .figwrap p { display: flex; justify-content: center; align-items: flex-start; gap: 16px; margin: 0; flex-wrap: wrap; width: 100%; }
+/* Converted figures carry a small intrinsic size, so the height is set and the
+   width follows; a figure taller than wide needs .tall or its own slide. */
+.reveal .figwrap img { height: 440px; width: auto; max-width: 100%; }
+.reveal .figwrap.tall img { height: 500px; }
+.reveal .figwrap.pair img { height: 370px; }
+.reveal .split .figwrap img { height: 420px; }
+.reveal .figcap { display: block; font: 400 0.5em/1.4 $body; color: $ink-2; text-align: center; margin-top: 0.5em; }
+
+/* ---------- title slide ---------- */
+
+.reveal #title-slide {
+  position: relative;
+  padding-top: 92px;
+  text-align: left;
+  .title { font-size: 2.6em; line-height: 1; letter-spacing: -0.025em; margin: 0 0 0.3em; max-width: 18ch; }
+  .subtitle { font: 400 0.82em/1.35 $body; color: $ink-2; margin: 0 0 0.9em; max-width: 52ch; }
+  .subtitle img { position: absolute; top: 0; left: 0; display: block; width: min(100%, 940px); height: auto; max-height: 90px; object-fit: contain; object-position: left center; }
+  .subtitle img + br { display: none; }
+  .title-evidence { font: 700 1.3em/1.2 $display; color: $ink; }
+  .title-conference { font: 700 0.82em/1.3 $display; color: $primary; }
+  .title-organizers { font: 400 0.62em/1.4 $display; color: $ink-3; }
+  .title-date { font: 500 0.68em/1.35 $display; color: $ink-2; }
+  .quarto-title-authors { justify-content: flex-start; margin: 0; }
+  .quarto-title-author { padding: 0; margin: 0; }
+  .quarto-title-author-name { font: 600 0.72em/1.25 $display; color: $ink; margin: 0; }
+  .quarto-title-affiliation { font: 400 0.44em/1.4 $display; color: $ink-3; margin: 0; }
+  .date { font: 500 0.42em/1.4 $display; color: $ink-3; margin: 0.4em 0 0; }
+}
+
+/* ---------- section dividers: a big assertion and one short rule ---------- */
+/* The rule is the place for a topic motif (the housing deck used a course of brick). */
+
+.reveal .quarto-title-block h2 { border-bottom: 0; }
+.reveal .divider h2 { font-size: 2em; line-height: 1.05; max-width: 22ch; margin: 0; }
+/* The divider's motif is the coin fork, drawn by CH.fork in a .stage.glyph under the title. */
+
+/* ---------- references ---------- */
+
+.reveal #refs { font-size: 0.5em; line-height: 1.35; }
+.reveal #refs .csl-entry { margin-bottom: 0.5em; }
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .chart * { transition: none !important; }
+}
+
+/* ---------- deck-specific additions ---------- */
+
+/* Jasmine's wording panel: the survey text as the respondent saw it */
+.reveal .vignette { border: 1px solid $line; border-left: 4px solid $ink; border-radius: 10px; padding: 14px 18px; background: $paper-2; font: 400 0.62em/1.5 $body; color: $ink; }
+.reveal .vignette p { margin: 0 0 0.5em; }
+.reveal .vignette p:last-child { margin: 0; }
+.reveal .vignette .blank { display: inline-block; min-width: 3.2em; border-bottom: 2px solid $ink-3; }
+.reveal .vignette .fogged { background: $actor-b-soft; color: color-mix(in srgb, $actor-b 70%, $ink); padding: 0 4px; border-radius: 3px; }
+
+/* the mock answer form: three inputs that sum to 100 */
+.reveal .form > p { display: contents; }
+.reveal .form { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center; font: 500 0.6em $display; color: $ink; margin-top: 0.4em; }
+.reveal .form .box { font: 500 0.9em $mono; border: 1.5px solid $line; border-radius: 6px; padding: 4px 10px; min-width: 4ch; text-align: right; background: $paper; }
+.reveal .form .sum { grid-column: 1 / -1; border-top: 1px solid $line; padding-top: 6px; color: $ink-3; display: flex; justify-content: space-between; }
+.reveal .form .spend-t { color: $primary; } .reveal .form .save-t { color: $contrast; } .reveal .form .debt-t { color: $actor-a; }
+
+/* section 3 divider: the fog. The rule turns blue and dissolves. */
+.reveal .divider.fog h2 .fogged { color: $actor-b; }
+
+/* recap: a quieter stat row */
+.reveal .stats.quiet .stat { background: transparent; }
+
+/* chart: the stage-2 "fog" bars and hatches */
+.reveal .chart .fogtxt { fill: var(--fog); }
+.reveal .chart .tiny { font: 500 11px $mono; fill: $ink-3; }
+.reveal .chart .lbl.dim { fill: $ink-3; }
+
+/* the room link, next to the thing that raises the question */
+.reveal .room { font: 500 0.55em $display; color: $ink-3; margin-top: 0.8em; display: block; }
+.reveal .room a { text-decoration-color: $line; }
+.reveal .prose .room { font-size: 0.8em; }
+.reveal .back { font: 500 0.45em $display; color: $ink-3; display: block; margin-top: 0.6em; }
+
+/* appendix tables are small and wide */
+.reveal .tbl table { font-size: 0.46em; width: 100%; }
+.reveal .tbl table td, .reveal .tbl table th { padding: 0.35em 0.6em 0.35em 0; }
+.reveal .tbl.narrow table { width: auto; }
+
+.reveal .prose table { font-size: 0.8em; margin: 0.5em 0; }
+.reveal .figwrap.pair.wide img { height: 250px; }
+.reveal .prose .katex-display { font-size: 0.85em; margin: 0.4em 0; }
+.reveal .figwrap.raster.mono img { filter: grayscale(1); }
+.reveal .tbl table td:first-child { white-space: nowrap; }
+.reveal .form { margin-bottom: 1em; }
+.reveal .form .sum { margin-top: 2px; }
+.reveal .stage .ctl .legend { margin-left: auto; }
+
+/* ---------- glyph stages: the coin fork and Jasmine's strip ---------- */
+.reveal .stage.glyph { height: 150px; gap: 4px; }
+.reveal .stage.glyph > .chart-wrap { justify-content: flex-start; }
+.reveal .stage.glyph svg.chart { width: auto; max-width: 100%; }
+.reveal .divider .stage.glyph { height: 140px; margin-top: 30px; max-width: 560px; }
+.reveal .divider.fog .stage.glyph { height: 420px; max-width: none; }
+.reveal .divider.fog .stage.glyph svg.chart { width: 100%; }
+.reveal .divider.fog .stage.glyph .caption { font-size: 15px; }
+.reveal #title-slide .stage.strip { height: 120px; margin-top: 44px; max-width: 600px; }
+.reveal #title-slide .stage.strip .caption { font-size: 13px; }
+.reveal .closing .stage.strip { height: 120px; margin-top: 20px; max-width: 600px; }
+.reveal .closing .stage.strip .caption { font-size: 14px; }
+.reveal #closing .closing-contact { display: flex; justify-content: center; align-items: center; gap: 2.8em; margin: 0.6em auto 0; }
+.reveal #closing .closing-contact-details { text-align: left; font-size: 0.78em; line-height: 1.55; }
+.reveal #closing .closing-contact-details strong { color: $ink; font-weight: 800; }
+.reveal #closing .closing-contact-details a { color: $primary; }
+.reveal #closing .closing-qr-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.35em; font: 400 0.38em/1.2 $display; color: $ink-3; }
+.reveal #closing .closing-qr-wrap img { display: block; width: 230px; height: 230px; margin: 0; border: 8px solid $paper; }
+.reveal .scalefork.stage.glyph { height: 250px; }
+.reveal .scalefork.stage.glyph svg.chart { width: 100%; }
+/* numbers in prose: the display face, not code */
+.reveal .prose .num { font-family: $display; font-weight: 600; font-size: 1em; font-variant-numeric: tabular-nums; }
+
+/* Appendix example button on the opening overview slide. */
+.reveal a.example-button {
+  display: inline-block;
+  font-size: 0.78em;
+  padding: 0.12em 0.5em;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Continue the motivation challenge numbering after the example slide. */
+.reveal #panel .paper-highlight {
+  display: block;
+  color: $primary;
+  font-family: $display;
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.8em;
+}
+.reveal #panel .paper-highlight strong {
+  color: inherit;
+  font-weight: 800;
+}
+.reveal #remaining-challenges .claims ol { counter-reset: claim 1; }
+
+.reveal #identification-challenge .claims ol { counter-reset: claim 2; }
+
+/* Emphasize each solution below its corresponding challenge. */
+.reveal #panel .challenge-solution { color: $primary; }
+.reveal #panel .challenge-solution strong { color: inherit; font-weight: 800; }
+.reveal #panel .claims li > p { margin-bottom: 0.25em; }
+
+/* Figure-led appendix example, with the two moments underneath. */
+.reveal #measure .income-question-chart { display: block; margin: 0 auto; }
+.reveal #measure .income-moments { margin-top: 0.25em; }
+.reveal #measure .income-moments .prose { text-align: center; line-height: 1.25; }
+.reveal #measure .income-moments strong { font-family: $display; font-weight: 700; }
+.reveal #measure .income-moments .katex-display { margin: 0.3em 0; }
+
+.reveal #mean-preserving-spread .mps-takeaway { color: $primary; }
+.reveal #mean-preserving-spread .mps-takeaway strong { color: inherit; font-weight: 800; }
+.reveal #mean-preserving-spread .katex-display { margin: 0.35em 0; }
+
+.reveal #mean-preserving-spread .allocation-fields { margin-top: 0.65em; }
+.reveal #mean-preserving-spread .allocation-fields p { display: flex; justify-content: space-between; margin-bottom: 0.35em; }
+.reveal #mean-preserving-spread .allocation-blank { font-family: $mono; color: $ink-3; padding-left: 1em; }
+
+/* Consistent, concise takeaways on the setup slides. */
+.reveal .slide-takeaway {
+  display: block;
+  color: $primary;
+  font-family: $display;
+  font-size: 0.76em;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 0.6em;
+}
+.reveal .prose .slide-takeaway { font-size: 1.12em; }
+.reveal .slide-takeaway strong { color: inherit; font-weight: 800; }
+.reveal #income-uncertainty-example img { max-height: 350px; width: auto; }
+.reveal #income-uncertainty-example .source { font-size: 0.6em; }
+
+/* Bold strand headings, with references and contributions on separate lines. */
+.reveal #lit .literature li > p:first-child > strong { font-weight: 800; }
+.reveal #lit .literature li > p { margin-bottom: 0.3em; }
+
+/* Results: question, highlighted answer, chart, then concise interpretation. */
+.reveal .result-answer { display: block; color: $primary; font-family: $display; font-size: 0.88em; line-height: 1.25; margin-bottom: 0.4em; }
+.reveal .result-answer strong { color: inherit; font-weight: 800; }
+.reveal .margin-results .stage .chart { max-height: 295px; }
+.reveal .margin-results .stage .caption { display: none; }
+.reveal .margin-results .margin-numbers strong { font-weight: 700; }
+.reveal .margin-results .margin-numbers p { margin-bottom: 0.3em; }
+.reveal #extensive { padding-bottom: 72px; }
+.reveal #extensive .extensive-links { position: absolute; right: 0; bottom: 12px; display: flex; gap: 10px; align-items: center; }
+.reveal #extensive .extensive-links p { margin: 0; }
+.reveal #adjustment-direction > p:has(.example-button),
+.reveal #debt-composition-adjusters > p:has(.example-button),
+.reveal #income-uncertainty-distribution > p:has(.example-button) { position: absolute; right: 0; bottom: 12px; margin: 0; z-index: 50; }
+.reveal #debt-composition-adjusters { text-align: center; }
+.reveal #debt-composition-adjusters > p:first-of-type { display: flex; justify-content: center; }
+.reveal #debt-composition-adjusters img { display: block; max-height: 570px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; }
+.reveal #income-uncertainty-distribution { text-align: center; }
+.reveal #income-uncertainty-distribution img { display: block; max-height: 570px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; }
+.reveal #extensive .extensive-note.figcap { position: static; width: 92%; margin: 4px auto 12px; text-align: left; font-size: 14px; line-height: 1.2; }
+.reveal #extensive .extensive-note.figcap p { margin: 0; }
+
+.reveal #uncertainty-response.divider h2 { font-size: 1.6em; max-width: 32ch; }
+.reveal #uncertainty-response.divider > p { font-size: 0.9em; max-width: 48ch; margin: 1em auto 0; }
+.reveal #uncertainty-response.divider strong { color: $primary; font-weight: 800; }
+
+.reveal .heterogeneity-summary li { margin-bottom: 0.8em; }
+.reveal .heterogeneity-summary ul ul { margin: 0.18em 0 0.2em 1em; font-size: 0.88em; }
+.reveal .heterogeneity-summary ul ul li { margin-bottom: 0.18em; }
+.reveal .heterogeneity-summary strong { font-weight: 800; }
+.reveal section[id^="hetero-"] .prose table { font-size: 0.95em; }
+
+.reveal .deck-page-number { position: absolute; right: 20px; bottom: 16px; z-index: 30; font: 500 17px/1 $display; color: $ink-3; pointer-events: none; }
+.reveal .deck-page-number[hidden] { display: none; }
+.reveal .findings-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin: 0.2em 0 0.6em; }
+.reveal .finding-card { border: 1px solid $line; border-left: 4px solid $primary; border-radius: 8px; background: $paper-2; padding: 14px 18px; text-align: left; min-width: 0; }
+.reveal .finding-card:nth-child(2) { border-left-color: $contrast; }
+.reveal .finding-card:nth-child(3) { border-left-color: $actor-a; }
+.reveal .finding-card:nth-child(4) { border-left-color: $actor-b; }
+.reveal .finding-label { display: block; font: 700 0.62em/1.2 $display; color: $ink-2; margin-bottom: 0.35em; }
+.reveal .finding-number { font: 500 0.9em $mono; color: $ink-3; margin-right: 0.5em; }
+.reveal .finding-card p { margin: 0 0 0.4em; font-size: 0.62em; line-height: 1.3; }
+.reveal .finding-card strong { font-weight: 800; }
+.reveal .finding-card .example-button { font-size: 0.48em; }
+.reveal .findings-footnote { margin: -0.3em 0 0.35em; font: 400 0.44em/1.3 $display; color: $ink-3; text-align: left; }
+.reveal #findings .slide-takeaway { margin-top: 0.15em; }
+.reveal #paths .split.wide-left { grid-template-columns: minmax(0, 1fr) 300px; gap: 25px; }
+.reveal #paths .stage .chart { max-height: 420px; }
+
+/* Results tables retain standard coefficient/SE notation at slide scale. */
+.reveal .intensive-layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: 24px; align-items: center; }
+.reveal #intensive-table .standard-results { width: 92%; margin: 18px auto; font-size: 0.78em; }
+.reveal #intensive-table > p { max-width: 90%; margin-left: auto; margin-right: auto; }
+.reveal #debt-adjustment-groups .debt-status-comparison { display: grid; grid-template-columns: 1fr 1.08fr; gap: 18px; align-items: start; margin-top: 6px; }
+.reveal #debt-adjustment-groups .debt-status-panel h3 { margin: 0 0 4px; font-size: 0.72em; text-align: center; }
+.reveal #debt-adjustment-groups .debt-status-panel img { display: block; width: 100%; max-height: 340px; object-fit: contain; margin: 0 auto; }
+.reveal #debt-adjustment-groups .debt-status-note { font-size: 0.43em; line-height: 1.2; text-align: left; margin: 6px auto 0; width: 94%; color: $ink-2; }
+.reveal #heterogeneity-divider > h2 { display: none; }
+.reveal #heterogeneity-divider .heterogeneity-setup { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: center; margin-top: 10px; }
+.reveal #heterogeneity-divider .heterogeneity-hypotheses { text-align: left; }
+.reveal #heterogeneity-divider .heterogeneity-hypotheses > div { margin: 0 0 1.3em; }
+.reveal #heterogeneity-divider .heterogeneity-hypotheses h3 { margin: 0 0 0.3em; color: $primary; font-size: 0.98em; }
+.reveal #heterogeneity-divider .heterogeneity-hypotheses h3.heterogeneity-title { margin-bottom: 0.7em; color: $ink; font-size: 1.55em; line-height: 1.05; }
+.reveal #heterogeneity-divider .heterogeneity-hypotheses p { margin: 0; font-size: 0.96em; line-height: 1.3; }
+.reveal #heterogeneity-divider .allocation-density-figure { display: block; max-height: 570px; max-width: 100%; width: auto; height: auto; margin: 0 auto; }
+
+/* Endogenous-uncertainty heterogeneity: descriptive figure beside compact tests. */
+.reveal #heterogeneity-summary .endogenous-heterogeneity-layout { display: grid; grid-template-columns: 1.03fr 0.97fr; gap: 24px; align-items: center; margin-top: 0.15em; }
+.reveal #heterogeneity-summary .endogenous-heterogeneity-figure,
+.reveal #heterogeneity-summary .endogenous-heterogeneity-results { min-width: 0; text-align: left; }
+.reveal #heterogeneity-summary .endogenous-heterogeneity-layout h3 { font-family: $display; font-size: 0.68em; line-height: 1.15; margin: 0 0 0.45em; }
+.reveal #heterogeneity-summary .endogenous-heterogeneity-figure img { display: block; width: 100%; max-height: 425px; object-fit: contain; margin: 0 auto; }
+.reveal #heterogeneity-summary .endogenous-heterogeneity-figure p { color: $ink-3; font-size: 0.42em; line-height: 1.2; margin: 0.35em 0 0; }
+.reveal #heterogeneity-summary .heterogeneity-equation { font-family: $mono; font-size: 0.48em; line-height: 1.25; margin: 0 0 0.25em; }
+.reveal #heterogeneity-summary .heterogeneity-spec { color: $ink-2; font-size: 0.40em; line-height: 1.2; margin: 0 0 0.45em; }
+.reveal #heterogeneity-summary .uncertainty-prediction-table { width: 100%; border-collapse: collapse; font-family: $display; font-size: 0.37em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.reveal #heterogeneity-summary .uncertainty-prediction-table th,
+.reveal #heterogeneity-summary .uncertainty-prediction-table td { padding: 0.34em 0.27em; border-bottom: 1px solid $line; text-align: right; white-space: nowrap; }
+.reveal #heterogeneity-summary .uncertainty-prediction-table th { font-weight: 700; color: $ink-2; }
+.reveal #heterogeneity-summary .uncertainty-prediction-table th:first-child,
+.reveal #heterogeneity-summary .uncertainty-prediction-table td:first-child,
+.reveal #heterogeneity-summary .uncertainty-prediction-table th:nth-child(2),
+.reveal #heterogeneity-summary .uncertainty-prediction-table td:nth-child(2) { text-align: left; }
+.reveal #heterogeneity-summary .uncertainty-prediction-table tr:nth-child(4) td { border-bottom: 2px solid $ink-3; }
+.reveal #heterogeneity-summary .uncertainty-prediction-note { color: $ink-3; font-size: 0.34em; line-height: 1.2; margin: 0.45em 0 0; }
+.reveal #heterogeneity-summary .endogenous-heterogeneity-takeaway { color: $primary; font-family: $display; font-size: 0.78em; font-weight: 700; line-height: 1.2; margin: 0.45em 0 0; text-align: left; }
+.reveal #hetero-income .income-heterogeneity-layout { display: grid; grid-template-columns: minmax(0, 2.35fr) minmax(310px, 1fr); gap: 16px; align-items: center; margin: 0.15em 0 0; }
+.reveal #hetero-income .income-heterogeneity-layout > img { display: block; width: 100%; max-height: 380px; object-fit: contain; }
+.reveal #hetero-income .income-baseline-stat { text-align: left; border-left: 3px solid $contrast; padding: 6px 0 6px 12px; }
+.reveal #hetero-income .income-baseline-stat h3 { font-family: $display; font-size: 0.55em; line-height: 1.1; margin: 0 0 0.2em; }
+.reveal #hetero-income .income-stat-caption, .reveal #hetero-income .income-stat-n { color: $ink-3; font-size: 0.32em; line-height: 1.15; margin: 0.2em 0 0.35em; }
+.reveal #hetero-income .income-summary-table { width: 100%; border-collapse: collapse; font-family: $display; font-size: 0.33em; line-height: 1.12; font-variant-numeric: tabular-nums; }
+.reveal #hetero-income .income-summary-table th, .reveal #hetero-income .income-summary-table td { padding: 0.3em 0.12em; border-bottom: 1px solid $line; text-align: right; white-space: nowrap; }
+.reveal #hetero-income .income-summary-table th { font-weight: 700; color: $ink-2; }
+.reveal #hetero-income .income-summary-table th:first-child { text-align: left; }
+.reveal #hetero-income .income-heterogeneity-takeaways { color: $primary; font-family: $display; font-size: 0.51em; font-weight: 700; line-height: 1.18; margin: 0.25em 0 0.05em; padding-left: 1.5em; text-align: left; }
+.reveal #hetero-income .income-heterogeneity-takeaways li { margin: 0.15em 0; padding-left: 0.15em; }
+.reveal #hetero-liquidity .liquidity-heterogeneity-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(280px, 1fr); gap: 12px; align-items: center; margin: 0.05em 0 0; }
+.reveal #hetero-liquidity .liquidity-heterogeneity-layout > img { display: block; width: 100%; max-height: 410px; object-fit: contain; }
+.reveal #hetero-liquidity .liquidity-summary { text-align: left; border-left: 3px solid $contrast; padding: 6px 0 6px 12px; }
+.reveal #hetero-liquidity .liquidity-summary h3 { font-family: $display; font-size: 0.57em; line-height: 1.1; margin: 0 0 0.2em; }
+.reveal #hetero-liquidity .liquidity-summary p { color: $ink-3; font-size: 0.31em; line-height: 1.15; margin: 0.2em 0 0.35em; }
+.reveal #hetero-liquidity .liquidity-summary table { width: 100%; border-collapse: collapse; font-family: $display; font-size: 0.34em; line-height: 1.12; font-variant-numeric: tabular-nums; }
+.reveal #hetero-liquidity .liquidity-summary th, .reveal #hetero-liquidity .liquidity-summary td { padding: 0.34em 0.15em; border-bottom: 1px solid $line; text-align: right; white-space: nowrap; }
+.reveal #hetero-liquidity .liquidity-summary th { font-weight: 700; color: $ink-2; }
+.reveal #hetero-liquidity .liquidity-summary th:first-child { text-align: left; }
+.reveal #hetero-liquidity .liquidity-takeaways { color: $primary; font-family: $display; font-size: 0.53em; font-weight: 700; line-height: 1.16; margin: 0.18em 0 0; padding-left: 1.5em; text-align: left; }
+.reveal #hetero-liquidity .liquidity-takeaways li { margin: 0.12em 0; padding-left: 0.15em; }
+.reveal #hetero-debt .debt-type-results-layout { display: grid; grid-template-columns: minmax(0, 2.7fr) minmax(280px, 1fr); gap: 14px; align-items: center; margin: 0.08em 0 0; }
+.reveal #hetero-debt .debt-type-results-layout > img { display: block; width: 100%; max-height: 400px; object-fit: contain; }
+.reveal #hetero-debt .debt-type-counts { text-align: left; border-left: 3px solid $actor-a; padding: 6px 0 6px 12px; }
+.reveal #hetero-debt .debt-type-counts h3 { font-family: $display; font-size: 0.58em; line-height: 1.1; margin: 0 0 0.2em; }
+.reveal #hetero-debt .debt-type-counts p { color: $ink-3; font-size: 0.33em; line-height: 1.15; margin: 0.2em 0 0.35em; }
+.reveal #hetero-debt .debt-type-counts table { width: 100%; border-collapse: collapse; font-family: $display; font-size: 0.38em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.reveal #hetero-debt .debt-type-counts th, .reveal #hetero-debt .debt-type-counts td { padding: 0.38em 0.18em; border-bottom: 1px solid $line; text-align: right; white-space: nowrap; }
+.reveal #hetero-debt .debt-type-counts th { color: $ink-2; font-weight: 700; }
+.reveal #hetero-debt .debt-type-counts th:first-child { text-align: left; }
+.reveal #hetero-debt .debt-type-takeaway { color: $primary; font-family: $display; font-size: 0.57em; font-weight: 700; line-height: 1.18; margin: 0.25em 0 0.1em; text-align: left; }
+.reveal #intensive .stage .chart { max-height: 350px; }
+.reveal .standard-results { width: 100%; font-size: 18px; line-height: 1.2; border-top: 2px solid $ink; border-bottom: 2px solid $ink; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.reveal .standard-results th, .reveal .standard-results td { padding: 5px 6px; border: none; text-align: right; white-space: nowrap; }
+.reveal .standard-results th:first-child { text-align: left; font-weight: 500; }
+.reveal .standard-results thead { border-bottom: 1px solid $ink; }
+.reveal .standard-results thead th { white-space: normal; font-weight: 600; }
+.reveal .path-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.reveal .path-tables h3 { font-size: 21px; margin: 8px 0 16px; }
+.reveal .path-tables .standard-results { font-size: 18px; }
+.reveal .path-tables tbody tr:nth-child(4n+1) { border-top: 1px solid $ink-3; }
+.reveal #paths > p .source, .reveal #intensive > p .source { font-size: 16px; }
+.reveal .deck-page-number { right: 125px; }
+
+/* Projection readability and emphasis for the main findings. */
+.reveal .prose .source { font-size: 0.82em; }
+.reveal .findings-summary li { margin-bottom: 0.55em; }
+.reveal .findings-summary li > p { line-height: 1.35; }
+.reveal #findings .finding-question { color: $primary; font-weight: 800; }
+.reveal #findings .main-challenges-heading { display: inline-block; color: #A52F1D !important; font-weight: 900; background: #F8E7E2; border-left: 5px solid #A52F1D; padding: 0.12em 0.5em; }
+.reveal #findings .secondary-challenge-heading { display: inline-block; color: #08765F !important; font-weight: 900; background: #E3F1EC; border-left: 5px solid #08765F; padding: 0.12em 0.5em; }
+.reveal #lit .literature-contribution { display: block; margin-top: 0.6em; color: #A52F1D !important; font-weight: 900; }
+.reveal #lit .literature-contribution strong { color: #A52F1D !important; font-weight: 900; }
+.reveal #extensive .stage { height: 385px; }
+.reveal #extensive .stage .chart { max-height: 385px; }
+.reveal .standard-results { font-size: 20px; }
+.reveal .standard-results th { text-transform: none; letter-spacing: 0; font-size: 1em; }
+.reveal .standard-results .estimate-row th,
+.reveal .standard-results .estimate-row td { font-weight: 800; color: $ink; }
+.reveal .path-tables .standard-results { font-size: 19px; }
+.reveal .path-tables .standard-results th:last-child,
+.reveal .path-tables .standard-results td:last-child { color: $primary; background: $primary-soft; }
+.reveal #paths > p .source, .reveal #intensive > p .source { font-size: 18px; line-height: 1.3; }
+
+/* Motivation must remain readable from the back of the room. */
+.reveal #why-hard .motivation-points { font-size: 29px; line-height: 1.35; }
+.reveal #why-hard .motivation-points > ul > li { margin-bottom: 0.55em; }
+.reveal #why-hard .motivation-points ul ul { display: block; margin: 0.4em 0 0.3em 1.1em; font-size: 26px; }
+.reveal #why-hard .motivation-points ul ul li { margin-bottom: 0.3em; }
+.reveal #why-hard .motivation-points > ul > li.motivation-challenge-bridge { color: $contrast; font-size: 1.25em; font-weight: 750; }
+.reveal #why-hard .slide-takeaway { font-size: 29px; }
+
+/* Motivation now includes the three verbal challenges; examples are linked backup. */
+.reveal #why-hard .motivation-points { font-size: 30px; line-height: 1.28; }
+.reveal #why-hard .motivation-points > ul > li { margin-bottom: 0.32em; }
+.reveal #why-hard .motivation-points ul ul { font-size: 27px; margin-top: 0.25em; }
+.reveal #why-hard .motivation-points .citation { font-size: 17px; line-height: 1.2; }
+.reveal #why-hard .motivation-points > ol { display: block; margin: 0.45em 0 0 1.2em; font-size: 25px; }
+.reveal #why-hard .motivation-points > ol li { margin-bottom: 0.35em; }
+.reveal #why-hard .motivation-points > ol strong { font-weight: 750; }
+.reveal #why-hard .slide-takeaway { font-size: 30px; margin-top: 0.35em; }
+.reveal #main-challenges .motivation-points { font-size: 31px; line-height: 1.35; }
+.reveal #main-challenges .motivation-points > ol { font-size: 31px; }
+
+/* Place the survey question beside the mean-preserving spread. */
+.reveal #panel .paper-vignette { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 28px; align-items: center; margin-top: 16px; border-top: 1px solid #C9CEC6; padding-top: 12px; }
+.reveal #panel .paper-spread p { margin: 0; }
+.reveal #panel .paper-spread img { width: 100%; height: auto; margin: 0; }
+.reveal #panel .paper-survey { font-size: 21px; line-height: 1.3; }
+.reveal #panel .paper-survey p { margin: 0 0 0.45em; }
+.reveal #panel .paper-survey p:last-child { margin-bottom: 0; font-size: 18px; }
+.reveal #panel .paper-answer-fields { font-size: 19px; line-height: 1.3; }
+.reveal #panel .paper-answer-fields > div { display: flex; justify-content: space-between; margin-top: 0.2em; }
+.reveal #panel .paper-answer-fields > .answer-total { justify-content: flex-end; }
+
+/* Reveal the vignette together with the second challenge. */
+@media screen {
+  .reveal:not(.print-pdf) #panel:not(:has(.claims > ol > li:nth-child(2).visible)) .paper-vignette {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* Compact, grouped sample statistics in two readable columns. */
+.reveal #sample .sample-tables { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: start; }
+.reveal #sample .sample-tables table { width: 100%; margin: 0; font-size: 18px; line-height: 1.15; }
+.reveal #sample .sample-tables th, .reveal #sample .sample-tables td { padding: 4px 5px; }
+.reveal #sample .sample-tables td:not(:first-child), .reveal #sample .sample-tables thead th:not(:first-child) { text-align: right; white-space: nowrap; }
+.reveal #sample .sample-tables .sample-group th { color: $primary; background: $primary-soft; padding-top: 7px; padding-bottom: 7px; font-size: 19px; }
+.reveal #sample .sample-tables tr.sample-focus:not(.sample-group) { background: $contrast-soft; font-weight: 700; }
+.reveal #sample .sample-tables tr.sample-focus:not(.sample-group) td:first-child { border-left: 4px solid $contrast; }
+.reveal #sample .sample-tables tr.sample-focus.sample-group th { color: $contrast; background: $contrast-soft; border-left: 4px solid $contrast; }
+.reveal #sample .figcap { font-size: 16px; line-height: 1.25; margin-top: 12px; }
+
+/* Consistent solution and implementation colors across the overview. */
+.reveal #panel .challenge-solution, .reveal #paper-secondary .challenge-solution { color: $primary; }
+.reveal #panel .design-how, .reveal #paper-secondary .design-how { color: $contrast; }
+
+.reveal #paper-secondary .challenge-solution strong { color: inherit; font-weight: 800; }
+.reveal #panel .design-how strong, .reveal #paper-secondary .design-how strong { color: inherit; font-weight: 800; }
+.reveal #paper-secondary .prose > p:first-child strong { font-weight: 800; }
+
+/* Keep treatment-level results subordinate to the headline finding. */
+.reveal #extensive .extensive-summary > ul > li > ul {
+  font-size: 0.82em;
+  line-height: 1.25;
+  margin-top: 0.25em;
+}

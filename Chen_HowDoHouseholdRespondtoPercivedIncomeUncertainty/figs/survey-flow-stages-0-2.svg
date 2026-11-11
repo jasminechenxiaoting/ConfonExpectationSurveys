@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420" role="img" aria-labelledby="title desc">
+<title id="title">Stages 0–2 address measurement and causal identification</title>
+<desc id="desc">Stage 0 elicits perceived income uncertainty with the BOP-HH probabilistic question. Stage 1 guarantees unchanged income. Stage 2 randomly assigns equally likely positive and negative 20 or 40 percent income changes, holding expected income constant.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#667074"/></marker></defs>
+<g font-family="Helvetica Neue, Arial, sans-serif" fill="#1C2224" text-anchor="middle">
+<text x="170" y="30" font-size="25" font-weight="700">Stage 0</text><text x="500" y="30" font-size="25" font-weight="700">Stage 1</text><text x="900" y="30" font-size="25" font-weight="700">Stage 2</text>
+<path d="M20 45H320 M350 45H650 M730 45H1080" stroke="#C9CEC6"/>
+<text x="170" y="122" font-size="23" font-weight="700">Perceived uncertainty</text><text x="170" y="155" font-size="19">BOP-HH probabilistic question</text><text x="170" y="186" font-size="19">Prior income allocation</text>
+<text x="500" y="132" font-size="23" font-weight="700">No income uncertainty</text><text x="500" y="166" font-size="20">Income guaranteed unchanged</text>
+<text x="900" y="80" font-size="18">Groups 1 &amp; 2</text><text x="900" y="111" font-size="24" font-weight="700" fill="#128F78">−20% or +20%</text><text x="900" y="137" font-size="18">50% probability each</text>
+<text x="900" y="178" font-size="18">Groups 3 &amp; 4</text><text x="900" y="209" font-size="24" font-weight="700" fill="#C4452A">−40% or +40%</text><text x="900" y="235" font-size="18">50% probability each</text>
+<path d="M315 155H350 M650 155H700V111H760 M700 155V209H760" stroke="#667074" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="695" y="71" font-size="15">Random</text><text x="695" y="91" font-size="15">assignment</text>
+<path d="M30 241 Q30 252 42 252 H150 Q170 252 170 263 Q170 252 190 252 H298 Q310 252 310 241" fill="none" stroke="#128F78" stroke-width="2"/>
+<path d="M745 241 Q745 250 757 250 H880 Q900 250 900 259 Q900 250 920 250 H1043 Q1055 250 1055 241" fill="none" stroke="#C4452A" stroke-width="2"/>
+<g fill="#128F78" font-size="21" font-weight="700"><text x="170" y="287">Addressing the</text><text x="170" y="314">measurement problem</text></g>
+<g fill="#C4452A" font-size="21" font-weight="700"><text x="900" y="282">Exogenously vary</text><text x="900" y="306">income uncertainty;</text><text x="900" y="330">hold expected income constant</text></g>
+<path d="M20 343H1080" stroke="#C9CEC6"/>
+<text x="550" y="372" font-size="20" font-weight="700">At every stage: allocate current monthly household income</text>
+<text x="550" y="405" font-size="19">Spending ____% + Saving ____% + Debt repayment ____% = 100%</text>
+</g></svg>

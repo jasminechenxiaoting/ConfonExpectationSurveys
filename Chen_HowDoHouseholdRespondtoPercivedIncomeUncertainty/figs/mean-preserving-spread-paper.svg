@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="270" viewBox="0 0 520 270" role="img" aria-labelledby="title desc">
+<title id="title">Mean-preserving spread: ±20 percent</title><desc id="desc">Current income normalized to 100. Equal probabilities of 120 and 80 leave expected income at 100.</desc>
+<g font-family="Helvetica Neue, Arial, sans-serif" fill="#1C2224">
+<text x="260" y="26" text-anchor="middle" font-size="23" font-weight="700">Mean-preserving spread</text>
+<text x="12" y="122" font-size="20">Current income</text><text x="77" y="153" text-anchor="middle" font-size="26" font-weight="700">100</text>
+<path d="M160 140H205 M205 140L360 70 M205 140L360 210" stroke="#1C2224" stroke-width="2.5" fill="none"/>
+<path d="M205 140H500" stroke="#667074" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="267" y="89" font-size="20">50%</text><text x="267" y="205" font-size="20">50%</text>
+<text x="370" y="77" font-size="25" font-weight="700" fill="#128F78">120 (+20%)</text>
+<text x="370" y="217" font-size="25" font-weight="700" fill="#C4452A">80 (−20%)</text>
+<text x="500" y="128" text-anchor="end" font-size="19" fill="#667074">Expected income: 100</text>
+<text x="260" y="262" text-anchor="middle" font-size="18" fill="#667074">Illustration: current income normalized to 100</text>
+</g></svg>

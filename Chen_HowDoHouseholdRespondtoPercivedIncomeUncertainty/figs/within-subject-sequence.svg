@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" role="img" aria-labelledby="title desc">
+<title id="title">Jasmine answers at four successive stages</title>
+<desc id="desc">Prior allocation, guaranteed income, equal-chance plus or minus 20 percent, and equal-chance plus or minus 40 percent. Each stage elicits spending, saving and debt repayment shares that sum to 100 percent.</desc>
+<defs><marker id="next" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#667074"/></marker></defs>
+<rect width="1100" height="350" fill="white"/>
+<g font-family="Helvetica Neue, Arial, sans-serif" fill="#1C2224">
+<text x="140" y="32" font-size="20" text-anchor="middle" font-weight="bold" fill="#667074">Stage 0</text>
+<text x="140" y="72" font-size="23" text-anchor="middle" font-weight="bold" fill="#667074">Prior collection</text>
+<text x="140" y="102" font-size="18" text-anchor="middle" font-weight="normal" fill="#667074">Current allocation</text>
+<line x1="253" x2="297" y1="68" y2="68" stroke="#667074" stroke-width="1.5" marker-end="url(#next)"/>
+<line x1="24" x2="256" y1="131" y2="131" stroke="#C9CEC6"/>
+<text x="24" y="174" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Spending</text>
+<text x="256" y="174" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="24" y="214" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Saving</text>
+<text x="256" y="214" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="24" y="254" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Debt repayment</text>
+<text x="256" y="254" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="140" y="303" font-size="18" text-anchor="middle" font-weight="bold" fill="#1C2224">Total: 100%</text>
+<text x="410" y="32" font-size="20" text-anchor="middle" font-weight="bold" fill="#1C2224">Stage 1</text>
+<text x="410" y="72" font-size="23" text-anchor="middle" font-weight="bold" fill="#1C2224">Guaranteed income</text>
+<text x="410" y="102" font-size="18" text-anchor="middle" font-weight="normal" fill="#1C2224">Income unchanged</text>
+<line x1="523" x2="567" y1="68" y2="68" stroke="#667074" stroke-width="1.5" marker-end="url(#next)"/>
+<line x1="294" x2="526" y1="131" y2="131" stroke="#C9CEC6"/>
+<text x="294" y="174" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Spending</text>
+<text x="526" y="174" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="294" y="214" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Saving</text>
+<text x="526" y="214" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="294" y="254" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Debt repayment</text>
+<text x="526" y="254" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="410" y="303" font-size="18" text-anchor="middle" font-weight="bold" fill="#1C2224">Total: 100%</text>
+<text x="680" y="32" font-size="20" text-anchor="middle" font-weight="bold" fill="#128F78">Stage 2</text>
+<text x="680" y="72" font-size="23" text-anchor="middle" font-weight="bold" fill="#128F78">±20% income</text>
+<text x="680" y="102" font-size="18" text-anchor="middle" font-weight="normal" fill="#128F78">Equal chances</text>
+<line x1="793" x2="837" y1="68" y2="68" stroke="#667074" stroke-width="1.5" marker-end="url(#next)"/>
+<line x1="564" x2="796" y1="131" y2="131" stroke="#C9CEC6"/>
+<text x="564" y="174" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Spending</text>
+<text x="796" y="174" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="564" y="214" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Saving</text>
+<text x="796" y="214" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="564" y="254" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Debt repayment</text>
+<text x="796" y="254" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="680" y="303" font-size="18" text-anchor="middle" font-weight="bold" fill="#1C2224">Total: 100%</text>
+<text x="950" y="32" font-size="20" text-anchor="middle" font-weight="bold" fill="#C4452A">Stage 3</text>
+<text x="950" y="72" font-size="23" text-anchor="middle" font-weight="bold" fill="#C4452A">±40% income</text>
+<text x="950" y="102" font-size="18" text-anchor="middle" font-weight="normal" fill="#C4452A">Equal chances</text>
+<line x1="834" x2="1066" y1="131" y2="131" stroke="#C9CEC6"/>
+<text x="834" y="174" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Spending</text>
+<text x="1066" y="174" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="834" y="214" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Saving</text>
+<text x="1066" y="214" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="834" y="254" font-size="18" text-anchor="start" font-weight="normal" fill="#1C2224">Debt repayment</text>
+<text x="1066" y="254" font-size="18" text-anchor="end" font-weight="normal" fill="#1C2224">____%</text>
+<text x="950" y="303" font-size="18" text-anchor="middle" font-weight="bold" fill="#1C2224">Total: 100%</text>
+<text x="550" y="344" font-size="20" text-anchor="middle" font-weight="normal" fill="#667074">Same respondent · same allocation questions</text>
+</g></svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-labelledby="title desc">
+<title id="title">Survey design: stages 1 to 3</title><desc id="desc">Guaranteed income followed by randomly assigned income uncertainty and a change in uncertainty for groups 1 and 3. Expected income is fixed.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#667074"/></marker></defs>
+<g font-family="Helvetica Neue, Arial, sans-serif" fill="#1C2224" text-anchor="middle">
+<text x="170" y="30" font-size="24" font-weight="700">Stage 1</text><text x="565" y="30" font-size="24" font-weight="700">Stage 2</text><text x="950" y="30" font-size="24" font-weight="700">Stage 3</text>
+<path d="M30 44H310 M425 44H705 M810 44H1090" stroke="#C9CEC6"/>
+<text x="170" y="132" font-size="24" font-weight="700">Guaranteed income</text><text x="170" y="166" font-size="21">Income unchanged</text><text x="170" y="197" font-size="19" fill="#667074">No uncertainty</text>
+<text x="565" y="82" font-size="19">Groups 1 &amp; 2</text><text x="565" y="113" font-size="26" font-weight="700" fill="#128F78">±20%</text><text x="565" y="140" font-size="18">50–50 probabilities</text>
+<g opacity="0.25"><text x="565" y="183" font-size="19">Groups 3 &amp; 4</text><text x="565" y="214" font-size="26" font-weight="700" fill="#C4452A">±40%</text><text x="565" y="241" font-size="18">50–50 probabilities</text></g>
+<text x="950" y="82" font-size="19">Group 1</text><text x="950" y="113" font-size="26" font-weight="700" fill="#C4452A">±40%</text><text x="950" y="140" font-size="18">50–50 probabilities</text>
+<g opacity="0.25"><text x="950" y="183" font-size="19">Group 3</text><text x="950" y="214" font-size="26" font-weight="700" fill="#128F78">±20%</text><text x="950" y="241" font-size="18">50–50 probabilities</text></g>
+<text x="365" y="80" font-size="16">Random</text><text x="365" y="100" font-size="16">assignment</text>
+<path d="M310 160H370V115H435 M700 113H825" stroke="#667074" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M370 160V215H435 M700 214H825" stroke="#667074" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.25"/>
+<path d="M30 262H1090" stroke="#C9CEC6"/>
+<text x="550" y="288" font-size="20" font-weight="700">Expected income stays fixed across scenarios.</text>
+<text x="550" y="315" font-size="19">At each stage: allocate current income to spending, saving, and debt repayment.</text>
+</g></svg>

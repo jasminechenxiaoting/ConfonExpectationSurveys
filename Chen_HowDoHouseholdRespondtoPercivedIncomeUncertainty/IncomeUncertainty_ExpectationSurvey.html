@@ -1,0 +1,2883 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="IncomeUncertainty_ExpectationSurvey_files/libs/clipboard/clipboard.min.js"></script>
+<script src="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/tabby.min.js"></script>
+<script src="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/popper.min.js"></script>
+<script src="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="IncomeUncertainty_ExpectationSurvey_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
+
+  <meta name="author" content="Xiaoting (Jasmine) Chen">
+  <title>How do households respond to perceived income uncertainty?</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/dist/theme/quarto-3dbbbb8e482c88366f1d14429c4ee224.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <!-- The explorable's three faces. Each has a system fallback in the theme, so the
+       deck still presents offline; the fonts are the one thing that needs the network. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">How do households respond to perceived income uncertainty?</h1>
+  <p class="subtitle"><img src="figs/logos/title-logo-row.svg" alt="University of Copenhagen, CEBI, SAFE, and Goethe University GSEFM"><br>
+<span class="title-evidence">Evidence from consumption, saving and debt repayment</span><br><span class="title-conference">7th Joint Conference on Expectation Survey</span><br><span class="title-organizers">Bank of Canada · New York Fed · ECB · Bank of Mexico</span><br><span class="title-date">13 November 2026</span></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Xiaoting (Jasmine) Chen
+</div>
+        <p class="quarto-title-affiliation">
+            University of Copenhagen &amp; CEBI (Visiting PhD student)<br>Leibniz Institute for Financial Research SAFE &amp; Goethe University Frankfurt (Main base)
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="why-hard" class="slide level2 center">
+<h2>Motivation</h2>
+<p><span class="slide-takeaway">How do households respond to perceived income uncertainty?</span></p>
+<div class="prose motivation-points">
+<ul>
+<li>Households face many sources of uncertainty.</li>
+<li class="fragment" data-fragment-index="1"><strong>Household income uncertainty</strong> is a central one.
+<ul>
+<li>Income provides the resources households use to finance their needs.</li>
+<li>Income uncertainty shapes key household decisions: <strong>consumption, saving, and debt repayment</strong>.</li>
+</ul>
+</li>
+<li class="fragment" data-fragment-index="2">Understanding how households respond to perceived income uncertainty is a <a href="#/lit">longstanding</a> and important question.
+<ul>
+<li>
+<p><span class="citation" data-cites="leland_saving_1968 carroll_buffer-stock_1997 jappelli_fiscal_2014 wang_perceived_2023 caplin_subjective_2023 kosar_subjective_2025">(Leland 1968; Carroll 1997; Jappelli and Pistaferri 2014; Wang 2023; Caplin et al. 2023; Koşar and Melcangi 2025)</span>.</p>
+</li>
+</ul>
+</li>
+<li class="motivation-challenge-bridge fragment" data-fragment-index="3">Yet key challenges remain.</li>
+</ul>
+</div>
+</section>
+<section id="main-challenges" class="slide level2 center">
+<h2>Main challenges</h2>
+<div class="prose motivation-points">
+<ol type="1">
+<li><p><strong>Measurement:</strong> Measure households’ perceived uncertainty about future income <span class="citation" data-cites="manski_survey_2018 wang_perceived_2023 caplin_subjective_2023">(Manski 2018; Wang 2023; Caplin et al. 2023)</span>.</p></li>
+<li><p><strong>Causal identification:</strong> Obtain exogenous variation in income uncertainty while holding expected income constant.</p></li>
+</ol>
+</div>
+<p><img data-src="figs/income-moments-example.svg" alt="Illustrative subjective income distributions across two survey waves, showing that expected income and perceived uncertainty may move together." width="1000" height="318"></p>
+</section>
+<section id="panel" class="slide level2 center">
+<h2>This paper (1/2)</h2>
+<div class="prose">
+<p><span class="paper-highlight"><strong>Address two challenges in one vignette experiment embedded in a representative German household online survey.</strong></span></p>
+<div class="claims">
+<ol type="1">
+<li class="fragment"><p><strong>Measurement: perceived uncertainty about future income</strong></p>
+<p><span class="challenge-solution"><strong>My solution:</strong> directly elicit perceived income uncertainty.</span><br> <span class="design-how"><strong>How:</strong></span> the probabilistic income question in the German central bank household online survey. <a href="#/measure" class="example-button">Question example</a> <a href="#/sample" class="example-button">Sample</a></p></li>
+<li class="fragment"><p><strong>Causal identification: vary uncertainty while holding expected income constant</strong></p>
+<p><span class="challenge-solution"><strong>My solution:</strong> exogenously vary income uncertainty through mean-preserving spreads.</span><br> <span class="design-how"><strong>How:</strong></span> randomly assign income spreads in a vignette experiment. <a href="#/mean-preserving-spread" class="example-button">Vignette example</a></p></li>
+</ol>
+</div>
+</div>
+<div class="paper-vignette">
+<div class="paper-spread">
+<p><img data-src="figs/mean-preserving-spread-paper.svg" alt="Current income normalized to 100 becomes 120 or 80 with equal probabilities. Expected income remains 100." width="520" height="270"></p>
+</div>
+<div class="paper-survey">
+<p><strong>Survey question</strong></p>
+<p>Imagine the following scenarios: over the next 12 months, your household income will either <strong>increase by 20% or decrease by 20%</strong>. Both scenarios would happen with <strong>equal chance</strong>.</p>
+<p>Only based on the above information, how would you now allocate your <strong>current month’s household income</strong>?</p>
+<div class="paper-answer-fields">
+  <div><span>Spending</span><span>______%</span></div>
+  <div><span>Saving</span><span>______%</span></div>
+  <div><span>Debt Repayment</span><span>______%</span></div>
+  <div class="answer-total"><strong>Sum 100</strong></div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>The experiment is in the November 2025 wave. The panel period refers to the data coverage, not repeated experimental waves. The scenarios hold the stated mean fixed; this does not establish that respondents’ subjective interpretation of the mean is unchanged. All respondents start with the same guarantee, so randomization concerns subsequent scenarios, not the order of the guarantee. Outcomes are stated allocations, not observed behavior.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="paper-secondary" class="slide level2 center">
+<h2>This paper (2/2)</h2>
+<div class="prose">
+<p>The secondary challenge: identify how <strong>the same household</strong> responds to different levels of income uncertainty.</p>
+<p><span class="challenge-solution"><strong>My solution:</strong> use within-subject treatments to compare the same household’s decisions across uncertainty levels.</span></p>
+<p><span class="design-how"><strong>How:</strong></span> elicit allocations repeatedly as income uncertainty changes. Does the same household adapt to the new uncertainty level? Do decisions depend on the intermediate uncertainty level or the final uncertainty level? <a href="#/design" class="example-button">Survey flow</a></p>
+</div>
+<p><img data-src="figs/survey-flow-stages-1-3.svg" alt="Stage 1: guaranteed unchanged income. Stage 2: randomly assign groups 1 and 2 to ±20% income uncertainty and groups 3 and 4 to ±40%. Stage 3: group 1 moves to ±40% and group 3 moves to ±20%. Each spread has 50–50 probabilities; expected income stays fixed. Elicit spending, saving and debt repayment at each stage." width="1100" height="320"></p>
+<aside class="notes">
+<p>The diagram shows the income-uncertainty sequences. Groups 2 and 4 proceed to the separate ambiguity component after Stage 2 and are omitted from Stage 3 here.</p>
+<p>Within-household allocation changes measure responses to different scenarios. Path comparisons compare respondents assigned to different sequences at a common final uncertainty level; no respondent experiences both complete sequences. Scenario order and exposure also differ across paths. Outcomes are stated allocations, not observed behavior.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="findings" class="slide level2 center">
+<h2>Findings</h2>
+<div class="prose findings-summary findings-grouped">
+<p><span class="findings-heading main-challenges-heading"><strong>Main challenges · Measurement and causal identification</strong></span></p>
+<ol type="1">
+<li class="fragment"><p><span class="finding-question"><strong>Do households respond to income uncertainty?</strong></span><br> <strong>Yes. A substantial share of households adjust consumption, saving, and debt repayment.</strong> <a href="#/extensive" class="example-button">Details</a></p></li>
+<li class="fragment"><p><strong>How much do households respond?</strong><br> Relative to guaranteed income:<br> At ±20%: spending <strong>−2.0%</strong>, saving <strong>+3.9%</strong>, repayment <strong>+2.6%</strong>.<br> At ±40%: spending <strong>−6.6%</strong>, saving <strong>+12.3%</strong>, repayment <strong>+7.8%</strong>. <a href="#/intensive" class="example-button">Details</a></p></li>
+<li class="fragment"><p><strong>How does response magnitude scale with treatment magnitude?</strong><br> Doubling uncertainty roughly <strong>triples the average response</strong>. <a href="#/scaling" class="example-button">Details</a></p></li>
+<li class="fragment"><p><strong>Heterogeneity:</strong> perceived uncertainty varies descriptively but weakly predicts response heterogeneity; income, debt, and liquidity show clearer associations. <a href="#/heterogeneity-summary" class="example-button">Results</a> <a href="#/heterogeneity-finances" class="example-button">Financial details</a></p></li>
+</ol>
+<div id="findings-secondary" class="secondary-finding fragment">
+<p><span class="findings-heading secondary-challenge-heading"><strong>Secondary challenge · Responses within the same household</strong></span></p>
+<p><strong>Do households adapt? Does the path matter?</strong><br> Households <strong>adapt to the new uncertainty level</strong>, with limited evidence of path dependence. <a href="#/paths" class="example-button">Comparisons</a></p>
+</div>
+</div>
+<aside class="notes">
+<p>Spending and saving extensive margins are measured separately, not as a union. The intensive figures are 100 times mean log allocation-share changes, interpreted approximately as percentages and including non-adjusters. Numeric values reproduce the current chart data. Scaling ratios are imprecisely estimated. The spending path difference is −0.025 log points, approximately −2.5%. Wide confidence intervals mean failure to reject path differences is not evidence of equivalence. Allocation changes are measured within households; comparisons between paths are across randomized sequences at a common final uncertainty level. Scenario order and exposure also differ across paths. Heterogeneity results are associations, not identified causal effects of financial circumstances. Prior-uncertainty coefficients are imprecise, so these tests do not establish that differences in information perception are irrelevant. Income, liquidity and debt jointly explain only 3–4% of response variation at ±20%; many differences weaken at ±40%.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="lit" class="slide level2 center">
+<h2>Literature and contribution</h2>
+<div class="prose literature">
+<ul>
+<li><p><strong>Precautionary saving theory</strong></p>
+<p><span class="citation" data-cites="leland_saving_1968 skinner_risky_1988 kimball_precautionary_1990 carroll_buffer-stock_1992 carroll_buffer-stock_1997">(Leland 1968; Skinner 1988; Kimball 1990; Carroll et al. 1992; Carroll 1997)</span>.</p>
+<p><span class="primary-t">A novel vignette experiment revisits a longstanding question with changes in income uncertainty that preserve expected income.</span></p></li>
+<li><p><strong>Empirical precautionary saving</strong></p>
+<p><strong>Cross-sectional beliefs:</strong> <span class="citation" data-cites="guiso_earnings_1992 guiso_empirical_2002">(Guiso et al. 1992; Guiso et al. 2002)</span>. <strong>Time-series and panel evidence:</strong> <span class="citation" data-cites="carroll_does_1994 carroll1994does carroll_how_1998 ben-david_expectations_2018">(Carroll et al. 1994; Carroll 1994; Carroll and Samwick 1998; Ben-David et al. 2018)</span>. <strong>Model-based analysis:</strong> <span class="citation" data-cites="carroll_precautionary_2009">(Carroll 2009)</span>.</p>
+<p><strong>Marginal propensity to consume:</strong> <span class="citation" data-cites="jappelli_fiscal_2014 fagereng_mpc_2021 kosar_subjective_2025">(Jappelli and Pistaferri 2014; Fagereng et al. 2021; Koşar and Melcangi 2025)</span>.</p></li>
+<li><p><strong>Perceived income uncertainty</strong></p>
+<p><span class="citation" data-cites="dominitz_using_1997-2 manski_survey_2018 wang_perceived_2023 caplin_subjective_2023">(Dominitz and Manski 1997; Manski 2018; Wang 2023; Caplin et al. 2023)</span>.</p>
+<p><span class="primary-t">Connects elicited income beliefs to experimental variation in uncertainty, including comparisons within the same household.</span></p></li>
+</ul>
+</div>
+<p><span class="literature-contribution"><strong>Contribution: Addresses the above challenges in one vignette experiment embedded in the German nationally representative household online panel.</strong></span></p>
+<p><a href="#/why-hard" class="example-button">Back to motivation</a> <a href="#/mpc-literature" class="example-button">MPC literature</a> <a href="#/model" class="example-button">Theory</a></p>
+<aside class="notes">
+<p>The first strand establishes the precautionary-saving mechanism. Skinner (1988) combines a theoretical approximation with empirical comparisons; Carroll and Samwick (1998) belongs with empirical evidence, although it also uses a model to construct uncertainty measures. Carroll, Fuhrer and Wilcox (1994) studies aggregate sentiment and spending and is not a household cross-sectional study. Guiso, Jappelli and Pistaferri (2002) studies subjective earnings and employment uncertainty rather than identifying the causal response to an uncertainty treatment. Koşar and Melcangi (2025) combines subjective uncertainty, reported MPCs and model analysis; it is the closest bridge to the MPC strand. Our allocation responses to uncertainty are not MPCs out of a transfer. The vignette identifies responses to assigned hypothetical scenarios; it does not establish effects on realized expenditure or that every respondent interprets the scenario mean identically. Wang uses perceived income uncertainty in consumption-model calibration, motivating the distinction between perceived and calibrated uncertainty. Ambiguity literature remains in the separate ambiguity section and its appendix interpretations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="design" class="slide level2 center">
+<h2>How does one vignette address both challenges at once?</h2>
+<p><img data-src="figs/survey-flow-stages-0-2.svg" alt="Stage 0: elicit perceived income uncertainty, addressing the measurement problem. Stage 1: guaranteed unchanged income. Stage 2: random assignment to ±20% or ±40%, each with equal probabilities, exogenously varying income uncertainty while holding expected income constant." width="1200" height="458"></p>
+<p><a href="#/mean-preserving-spread" class="example-button">Vignette example</a> <a href="#/measure" class="example-button">Density question example</a> <a href="#/income-uncertainty-distribution" class="example-button">Income uncertainty distribution</a></p>
+<aside class="notes">
+<p>This slide focuses on the main challenges. Stage 0 elicits perceived income uncertainty using the BOP-HH probabilistic question and records prior allocations. Stage 1 elicits allocations under guaranteed unchanged income. Stage 2 randomly assigns groups 1 and 2 to ±20% and groups 3 and 4 to ±40%, with equal probabilities of income increases and decreases. Expected income is fixed across these scenarios, but need not equal prior expected income. Allocations concern current monthly income and are stated choices. The original stage numbering is retained; estimation labels that exclude prior collection call these stages 0 and 1. Subsequent within-subject changes are shown on This paper (2/2).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sample" class="slide level2 center">
+<h2>Statistics Summary</h2>
+<div class="sample-tables">
+
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Variable</th>
+<th data-quarto-table-cell-role="th">Mean</th>
+<th data-quarto-table-cell-role="th">SD</th>
+<th data-quarto-table-cell-role="th">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="sample-group odd">
+<th colspan="4" data-quarto-table-cell-role="th">Socio-demographics</th>
+</tr>
+<tr class="even">
+<td>Age (years)</td>
+<td>43.0</td>
+<td>13.1</td>
+<td>2,665</td>
+</tr>
+<tr class="odd">
+<td>Male (%)</td>
+<td>52.0</td>
+<td>—</td>
+<td>2,665</td>
+</tr>
+<tr class="even">
+<td>Bachelor’s degree or above (%)</td>
+<td>30.7</td>
+<td>—</td>
+<td>2,661</td>
+</tr>
+<tr class="odd">
+<td>Salaried (%)</td>
+<td>73.2</td>
+<td>—</td>
+<td>2,258</td>
+</tr>
+<tr class="even">
+<td>Civil servant (%)</td>
+<td>9.5</td>
+<td>—</td>
+<td>2,258</td>
+</tr>
+<tr class="odd">
+<td>Self-employed (%)</td>
+<td>5.4</td>
+<td>—</td>
+<td>2,258</td>
+</tr>
+<tr class="even">
+<td>Other profession (%)</td>
+<td>11.9</td>
+<td>—</td>
+<td>2,258</td>
+</tr>
+<tr class="odd">
+<td>Households with children (%)</td>
+<td>28.5</td>
+<td>—</td>
+<td>2,656</td>
+</tr>
+<tr class="even">
+<td>Household income (€)</td>
+<td>4,446</td>
+<td>2,494</td>
+<td>2,604</td>
+</tr>
+<tr class="odd">
+<td>Personal income (€)</td>
+<td>2,391</td>
+<td>1,546</td>
+<td>2,191</td>
+</tr>
+<tr class="sample-group sample-focus even">
+<th colspan="4" data-quarto-table-cell-role="th">Income expectations / household income</th>
+</tr>
+<tr class="sample-focus odd">
+<td>Expected income change</td>
+<td>0.014</td>
+<td>0.270</td>
+<td>2,512</td>
+</tr>
+<tr class="sample-focus even">
+<td>Income uncertainty</td>
+<td>0.059</td>
+<td>0.101</td>
+<td>2,509</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Variable</th>
+<th data-quarto-table-cell-role="th">Mean</th>
+<th data-quarto-table-cell-role="th">SD</th>
+<th data-quarto-table-cell-role="th">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="sample-group sample-focus odd">
+<th colspan="4" data-quarto-table-cell-role="th">Expenditure and saving</th>
+</tr>
+<tr class="even">
+<td>Durable purchases (%)</td>
+<td>43.6</td>
+<td>—</td>
+<td>1,424</td>
+</tr>
+<tr class="odd">
+<td>Durables: intensive margin (€)</td>
+<td>1,718</td>
+<td>6,125</td>
+<td>655</td>
+</tr>
+<tr class="sample-focus even">
+<td>Non-durables: intensive margin (€)</td>
+<td>1,312</td>
+<td>2,650</td>
+<td>1,401</td>
+</tr>
+<tr class="odd">
+<td>Housing expenditure (€)</td>
+<td>892</td>
+<td>1,679</td>
+<td>1,422</td>
+</tr>
+<tr class="sample-focus even">
+<td>Saving participation (%)</td>
+<td>74.5</td>
+<td>—</td>
+<td>1,420</td>
+</tr>
+<tr class="sample-focus odd">
+<td>Saving: intensive margin (€)</td>
+<td>735</td>
+<td>2,505</td>
+<td>1,097</td>
+</tr>
+<tr class="sample-group sample-focus even">
+<th colspan="4" data-quarto-table-cell-role="th">Financial conditions · debt</th>
+</tr>
+<tr class="odd">
+<td>Net wealth (€1,000)</td>
+<td>301.8</td>
+<td>423.9</td>
+<td>2,546</td>
+</tr>
+<tr class="even">
+<td>Homeownership (%)</td>
+<td>59.3</td>
+<td>—</td>
+<td>2,662</td>
+</tr>
+<tr class="odd">
+<td>Liquidity-to-income ratio</td>
+<td>15.904</td>
+<td>30.452</td>
+<td>2,448</td>
+</tr>
+<tr class="sample-focus even">
+<td>Total debt (€)</td>
+<td>66,401</td>
+<td>135,141</td>
+<td>2,600</td>
+</tr>
+<tr class="sample-focus odd">
+<td>Debt-to-income ratio</td>
+<td>13.545</td>
+<td>29.086</td>
+<td>2,481</td>
+</tr>
+<tr class="sample-focus even">
+<td>Unsecured debt (%)</td>
+<td>26.4</td>
+<td>—</td>
+<td>2,610</td>
+</tr>
+<tr class="sample-focus odd">
+<td>Unsecured debt: intensive (€)</td>
+<td>18,389</td>
+<td>25,431</td>
+<td>709</td>
+</tr>
+<tr class="sample-focus even">
+<td>Secured debt (%)</td>
+<td>35.0</td>
+<td>—</td>
+<td>2,603</td>
+</tr>
+<tr class="sample-focus odd">
+<td>Secured debt: intensive (€)</td>
+<td>175,711</td>
+<td>174,237</td>
+<td>1,061</td>
+</tr>
+<tr class="even">
+<td>Cash on hand (€)</td>
+<td>73,072</td>
+<td>135,318</td>
+<td>2,533</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p><span class="figcap">Weighted statistics; N is the unweighted number of observations available for each variable. Income expectations are divided by household income and shown as ratios. — = not reported.</span></p>
+<p><a href="#/panel" class="example-button">Back to this paper</a></p>
+<aside class="notes">
+<p>Source: updated summary-statistics table supplied by the author. Values rounded from the supplied table. Only normalized income expectations are displayed; euro-denominated expectation measures are omitted. Weighted N and distribution percentiles are omitted for readability. The earlier statement that belief moments are available for only 841 respondents has been removed because the updated table reports N = 2,512 and 2,509 for the normalized expectation measures. Liquidity-to-income and debt-to-income retain the source’s ratio units, without adding a percent label.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="uncertainty-response" class="slide level2 divider center">
+<h2>Compared with no income uncertainty…</h2>
+<p>When households are told income uncertainty will increase, <span class="average-emphasis"><strong>on average</strong></span>, they say they would…</p>
+</section>
+<section id="extensive" class="slide level2 margin-results center">
+<h2>Do households respond to income uncertainty?</h2>
+<div class="stage" data-chart="extensiveUpdated"></div>
+<div class="extensive-note figcap">
+<p>Changes relative to guaranteed income. Consumption and saving are measured separately; debt repayment covers pre-treatment debtors only. Unweighted.</p>
+</div>
+<div class="extensive-summary">
+<ul>
+<li><p><strong>Yes. A substantial share of households responds to income uncertainty.</strong></p>
+<ul>
+<li><strong>At ±20%:</strong> around 50% of households adjust consumption and saving; 23% of debtors adjust debt repayment.</li>
+<li><strong>At ±40%:</strong> around 60% of households adjust consumption and saving; 34% of debtors adjust debt repayment.</li>
+</ul></li>
+</ul>
+</div>
+<div class="extensive-links">
+<p><a href="#/adjustment-direction" class="example-button">Debt adjustment direction</a> <a href="#/debt-composition-adjusters" class="example-button">Debt composition among adjusters</a></p>
+</div>
+<aside class="notes">
+<p>The headline reports adjustment rates for spending, saving and debt repayment separately, not the fraction changing any component of the overall allocation. At ±20%, 46.6% adjust spending and 48.0% adjust saving. At ±40%, the corresponding shares are 60.9% and 61.4%. Among pre-treatment debtors, debt repayment adjusts for 23.4% (112/479) and 34.0% (162/476), respectively. Spending and saving use all valid paired responses: N = 961 at ±20% and N = 938 at ±40%. Results are unweighted. These are stated allocations under hypothetical scenarios. The first-stage comparison includes all four groups and holds expected income in the scenario fixed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="intensive" class="slide level2 margin-results center">
+<h2>How much do households adjust in response to income uncertainty?</h2>
+<p><span class="result-answer"><strong>Households say they would cut current spending, save more and repay debt faster.</strong></span></p>
+<div class="stage" data-chart="intensive"></div>
+<p><span class="source">Approximate percentage changes in allocation shares relative to no income uncertainty, including non-adjusters. Labels show channel-specific observations: both guaranteed-stage and uncertainty-stage allocations must be observed and positive. Points show estimates; whiskers show 95% confidence intervals. ±20% uses a dashed pattern; ±40% uses a solid fill.</span></p>
+<p><a href="#/intensive-table" class="example-button">Full estimates table</a> <a href="#/intensive-common" class="example-button">Common sample results</a> <a href="#/lena-budget" class="example-button">Illustrative euro amounts</a> <a href="#/robust1" class="example-button">Robustness</a> <a href="#/hetero-debt" class="example-button">Debt-type repayment results</a></p>
+<aside class="notes">
+<p>The supplied estimates are not conditional on adjustment: the intensive sample sizes are 960 and 938, versus spending-adjuster counts of 448 and 571. Do not label these estimates as conditional on adjustment. A conditional analysis would require the corresponding estimates and standard errors from respondent data or the relevant table. Numbers are 100 times mean log-share changes, interpreted approximately as percentage changes in allocation shares relative to no income uncertainty, not percentage-point changes. Stage 2 is the first uncertainty and Stage 1 the guarantee in the presentation’s numbering. The original estimation labels these stages 1 and 0. Treatment of zero allocation shares should be checked against the paper before presenting log estimates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="scaling" class="slide level2 center">
+<h2>How does response magnitude scale with treatment magnitude?</h2>
+<p><span class="result-answer"><strong>Doubling income uncertainty roughly triples the estimated response.</strong></span></p>
+<div class="scaling-layout">
+<div class="stats scaling-ratios">
+<div class="stat">
+<p><span class="k f"><span class="data" data-key="intensive.rows.0.ratio" data-d="1"></span>×</span> <span class="l">Consumption</span></p>
+</div>
+<div class="stat">
+<p><span class="k f"><span class="data" data-key="intensive.rows.1.ratio" data-d="1"></span>×</span> <span class="l">Saving</span></p>
+</div>
+<div class="stat">
+<p><span class="k f"><span class="data" data-key="intensive.rows.2.ratio" data-d="1"></span>×</span> <span class="l">Debt repayment</span></p>
+</div>
+</div>
+<div class="stage" data-chart="scaling"></div>
+</div>
+<p><span class="source">Illustrative benchmarks and estimates with 95% confidence intervals. The intervals include both proportional and quadratic scaling.</span></p>
+<p><a href="#/model" class="example-button">Model</a></p>
+<aside class="notes">
+<p>The figure compares the ±40% response with the ±20% response. Curves illustrate linear and quadratic benchmarks, not fitted response functions. Whiskers are delta-method 95% confidence intervals treating the treatment groups as independent. The point estimates suggest more-than-proportional responses, but the intervals include both the 2× and 4× benchmarks. The exact degree of nonlinearity is uncertain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="heterogeneity-divider" class="slide level2 center">
+<h2>Not all households respond like the average household</h2>
+<div class="heterogeneity-setup">
+  <div class="heterogeneity-hypotheses">
+    <h3 class="heterogeneity-title">Not all households respond like the average household</h3>
+    <div><h3>H1</h3><p>Responses vary with endogenous perceived income uncertainty.</p></div>
+    <div><h3>H2</h3><p>Responses vary with financial balance sheet strength.</p></div>
+  </div>
+  <img class="allocation-density-figure" src="figs/allocation_adjustment_level_change_density_panel.png" alt="Distributions of within-household changes in consumption, saving, and debt repayment, comparing ±20% and ±40% income uncertainty. A dashed vertical line marks zero change; positive values indicate increases and negative values indicate decreases. Zero allocations are included.">
+</div>
+</section>
+<section id="heterogeneity-summary" class="slide level2 center">
+<h2>H1: Does endogenous perceived income uncertainty predict adjustment heterogeneity?</h2>
+<div class="endogenous-heterogeneity-layout">
+  <div class="endogenous-heterogeneity-figure">
+    <h3>Descriptive responses under ±20% uncertainty</h3>
+    <img src="figs/allocation_change_by_endogenous_uncertainty.png" alt="Mean allocation-share changes across four groups of endogenous perceived income uncertainty, for consumption, saving, and debt repayment under the ±20% treatment. Bars show unweighted group means with 95% confidence intervals and sample counts.">
+    <p>Responses vary across perceived-uncertainty groups. This figure is descriptive.</p>
+  </div>
+  <div class="endogenous-heterogeneity-results">
+    <h3>Prediction regression</h3>
+    <p class="heterogeneity-equation">Δ allocation<sub>pp</sub> = α<sub>u,o</sub> + β<sub>L</sub>Low + β<sub>M</sub>Middle + β<sub>H</sub>High + ε</p>
+    <p class="heterogeneity-spec">Estimated separately by uncertainty treatment (u) and outcome (o); zero perceived uncertainty is the reference group. HC2 robust standard errors.</p>
+    
+<table class="uncertainty-prediction-table caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Treatment</th>
+<th data-quarto-table-cell-role="th">Outcome</th>
+<th data-quarto-table-cell-role="th">Zero mean</th>
+<th data-quarto-table-cell-role="th">Low Δ (p)</th>
+<th data-quarto-table-cell-role="th">Middle Δ (p)</th>
+<th data-quarto-table-cell-role="th">High Δ (p)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>±20%</td>
+<td>Consumption</td>
+<td>−0.259</td>
+<td>−1.240 (.077)</td>
+<td>−1.370 (.055)</td>
+<td>−0.512 (.536)</td>
+</tr>
+<tr class="even">
+<td>±20%</td>
+<td>Saving</td>
+<td>−0.124</td>
+<td>+0.682 (.342)</td>
+<td>+1.270 (.079)</td>
+<td>+1.060 (.164)</td>
+</tr>
+<tr class="odd">
+<td>±20%</td>
+<td>Debt repayment</td>
+<td>+0.383</td>
+<td>+0.562 (.152)</td>
+<td>+0.104 (.759)</td>
+<td>−0.543 (.262)</td>
+</tr>
+<tr class="even">
+<td>±40%</td>
+<td>Consumption</td>
+<td>−2.900</td>
+<td>+0.585 (.602)</td>
+<td>−0.888 (.365)</td>
+<td>+0.228 (.873)</td>
+</tr>
+<tr class="odd">
+<td>±40%</td>
+<td>Saving</td>
+<td>+1.660</td>
+<td>−0.332 (.777)</td>
+<td>+0.507 (.615)</td>
+<td>−0.384 (.779)</td>
+</tr>
+<tr class="even">
+<td>±40%</td>
+<td>Debt repayment</td>
+<td>+1.240</td>
+<td>−0.253 (.663)</td>
+<td>+0.381 (.484)</td>
+<td>+0.155 (.787)</td>
+</tr>
+</tbody>
+</table>
+
+    <p class="uncertainty-prediction-note">Zero mean is the predicted change for sd_to_hhinc = 0. Other cells give coefficient differences from zero (p-value); predicted group mean = zero mean + difference. N = 914 at ±20%; N = 907 at ±40%.</p>
+  </div>
+</div>
+<p class="endogenous-heterogeneity-takeaway">Descriptively, responses vary across endogenous perceived-uncertainty groups; in regression, those differences have little predictive power.</p>
+<aside class="notes">
+<p>The descriptive figure groups respondents by baseline endogenous perceived income uncertainty and plots unweighted mean within-household changes under the ±20% treatment. The regression uses the same uncertainty groups, with sd_to_hhinc = 0 as the reference and four categories: zero, positive through P25, P25–P75, and above P75 of positive perceived uncertainty. The code estimates separate OLS regressions by outcome and treatment, with HC2 heteroskedasticity-robust standard errors. The table reports the zero-group intercept and contrasts for the other groups; p-values test each contrast against zero. It does not report a joint test of all group coefficients, so weak individual prediction should not be read as proof that all groups respond equivalently.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="heterogeneity-finances" class="slide level2 center">
+<h2>H2: Household financial strength explains differences in adjustment</h2>
+<div class="prose heterogeneity-summary">
+<ul>
+<li><p><strong>Income:</strong> Higher income shapes consumption and saving mainly under smaller shocks (±20%). <a href="#/hetero-income" class="example-button">Income</a></p></li>
+<li><p><strong>Liquidity:</strong></p>
+<ul>
+<li>High-liquidity households begin adjusting under larger shocks (±40%).</li>
+<li>Under ±40%, middle- and high-liquidity borrowers are less likely than low-liquidity borrowers to increase repayment. <a href="#/hetero-liquidity" class="example-button">Liquidity</a></li>
+</ul></li>
+<li><p><strong>Debt repayment:</strong></p>
+<ul>
+<li><strong>Debt type:</strong> Under ±20%, households with consumer debt are more likely to raise repayments; under ±40%, mortgage holders are more likely to do so. <a href="#/hetero-debt" class="example-button">Debt type</a></li>
+<li><strong>Existing debt burden:</strong> Lower-burden households increase repayments more; higher-burden households repay less and save more. <a href="#/repayment-burden" class="example-button">Debt burden</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="#/hetero-shapley" class="example-button">Relative explanatory contributions</a></p>
+<aside class="notes">
+<p>First-treatment regressions use approximately 819 respondents at ±20% and 807 at ±40%, controlling for socio-demographics and guaranteed-income allocation, with HC3 standard errors. Income, liquidity and debt are not randomized. Shapley percentages describe shares of the variation explained by these three dimensions, not shares of all outcome variation. Do not describe ±40% responses as universal: the extensive-margin evidence shows about 61% adjusting spending or saving, measured separately.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="addressing-the-secondary-challenge" class="slide level2 divider center">
+<h2>Addressing the secondary challenge</h2>
+<p><strong>A within-subject design</strong></p>
+<p>How does the same household adapt to changes in income uncertainty?</p>
+<div class="stage glyph" data-chart="fork" data-state="two"></div>
+</section>
+<section id="uncertainty-adaptation" class="slide level2 center">
+<h2>Households adapt to a new uncertainty level</h2>
+<p><img data-src="figs/uncertainty-adaptation.svg" alt="Six panels show observed consumption, saving and debt repayment as uncertainty rises from zero to ±20% to ±40%, or falls from ±40% to ±20%. Only black solid observed series and their error bars are shown." width="1140" height="450"></p>
+<p><span class="source">Observed series only. Approximate reconstruction from the supplied figure; error bars reproduced from that figure.</span></p>
+<aside class="notes">
+<p>The plotted positions and interval endpoints are approximate readings from the user-supplied Figure 6 screenshot, not newly estimated results. The screenshot differs from the existing path-comparison table, particularly for saving, so its trajectories are not silently replaced with table coefficients. Blue linear-scaling and red CRRA benchmarks are omitted. The guaranteed-income baseline is zero. Rows show rising and falling uncertainty, respectively; columns show consumption, saving and repayment.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="design-swap" class="slide level2 center">
+<h2>Does the intermediate uncertainty level matter?</h2>
+<p><img data-src="figs/path-comparison-setup.svg" alt="Two matched comparisons. At final ±20% uncertainty, compare group 1 facing it directly with group 3 reaching it after ±40%. At final ±40%, compare group 3 facing it directly with group 1 reaching it after ±20%. All allocations are measured relative to guaranteed income." width="1100" height="370"></p>
+<p><span class="slide-takeaway"><strong>Same final uncertainty. Different uncertainty experience. Different allocation?</strong></span></p>
+<aside class="notes">
+<p>These are comparisons across randomized sequences at a common final uncertainty level. Each respondent follows only one sequence. Outcomes are within-household changes from guaranteed income. History comparisons also differ in scenario order and exposure, so they do not isolate a psychological mechanism. There is no additional Stage 0 diagram here because the survey design has already been shown.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="paths" class="slide level2 center">
+<h2>Mostly, only the final uncertainty level matters</h2>
+<div class="path-tables"><div><h3>Final ±40%: 0 → 40 vs. 0 → 20 → 40</h3>
+<table class="standard-results caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Outcome</th>
+<th data-quarto-table-cell-role="th">Direct</th>
+<th data-quarto-table-cell-role="th">After other uncertainty level</th>
+<th data-quarto-table-cell-role="th">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Spending</th>
+<td>−0.084***</td>
+<td>−0.069***</td>
+<td>0.015</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.012</td>
+<td>0.012</td>
+<td>0.017</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>&lt;0.001</td>
+<td>&lt;0.001</td>
+<td>0.357</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>479</td>
+<td>446</td>
+<td>—</td>
+</tr>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Saving</th>
+<td>0.151***</td>
+<td>0.151***</td>
+<td>−0.000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.027</td>
+<td>0.031</td>
+<td>0.041</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>&lt;0.001</td>
+<td>&lt;0.001</td>
+<td>0.998</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>407</td>
+<td>363</td>
+<td>—</td>
+</tr>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Debt repayment</th>
+<td>0.074***</td>
+<td>0.046*</td>
+<td>−0.028</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.021</td>
+<td>0.024</td>
+<td>0.032</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>&lt;0.001</td>
+<td>0.060</td>
+<td>0.382</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>233</td>
+<td>219</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div><div><h3>Final ±20%: 0 → 20 vs. 0 → 40 → 20</h3>
+<table class="standard-results caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Outcome</th>
+<th data-quarto-table-cell-role="th">Direct</th>
+<th data-quarto-table-cell-role="th">After other uncertainty level</th>
+<th data-quarto-table-cell-role="th">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Spending</th>
+<td>−0.026***</td>
+<td>−0.051***</td>
+<td>−0.025**</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.007</td>
+<td>0.008</td>
+<td>0.011</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>0.001</td>
+<td>&lt;0.001</td>
+<td>0.018</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>474</td>
+<td>473</td>
+<td>—</td>
+</tr>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Saving</th>
+<td>0.076***</td>
+<td>0.096***</td>
+<td>0.019</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.022</td>
+<td>0.020</td>
+<td>0.029</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>&lt;0.001</td>
+<td>&lt;0.001</td>
+<td>0.504</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>408</td>
+<td>424</td>
+<td>—</td>
+</tr>
+<tr class="estimate-row odd">
+<th data-quarto-table-cell-role="th">Debt repayment</th>
+<td>0.024</td>
+<td>0.049***</td>
+<td>0.025</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">SE</th>
+<td>0.015</td>
+<td>0.018</td>
+<td>0.023</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">p-value</th>
+<td>0.104</td>
+<td>0.005</td>
+<td>0.277</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Observations</th>
+<td>233</td>
+<td>227</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><span class="slide-takeaway"><strong>Exception: spending at ±20% remains lower after ±40% (difference −0.025, p = 0.018).</strong></span></p>
+<p><span class="source">Log allocation changes relative to guaranteed income (0). Difference = after the other uncertainty level minus direct. SE = standard error. * p &lt; 0.10, ** p &lt; 0.05, *** p &lt; 0.01. Insignificance does not establish equivalence.</span></p>
+<aside class="notes">
+<p>Tables transcribed from the user-supplied results. Each response is a within-household change; comparisons between paths are across randomized sequences. The difference column reports the supplied estimates, which need not equal differences of rounded coefficients. Scenario order and exposure also differ across paths.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="conclusion" class="slide level2 center">
+<h2>Households DO respond to perceived income uncertainty</h2>
+<div class="prose findings-summary findings-grouped">
+<p><span class="findings-heading main-challenges-heading"><strong>Main findings · Household responses</strong></span></p>
+<ol type="1">
+<li class="fragment"><p><span class="finding-question"><strong>Do households respond to income uncertainty?</strong></span><br> <strong>Yes. A substantial share adjusts consumption, saving, and debt repayment.</strong></p></li>
+<li class="fragment"><p><strong>How much do households respond?</strong><br> At ±20%: spending <strong>−2.0%</strong>, saving <strong>+3.9%</strong>, repayment <strong>+2.6%</strong>.<br> At ±40%: spending <strong>−6.6%</strong>, saving <strong>+12.3%</strong>, repayment <strong>+7.8%</strong>.</p></li>
+<li class="fragment"><p><strong>Heterogeneity:</strong> income matters mainly for consumption and saving under ±20%; liquidity differences emerge under ±40%; debt type predicts repayment increases.</p></li>
+</ol>
+<div class="secondary-finding fragment">
+<p><span class="findings-heading secondary-challenge-heading"><strong>Secondary challenge · Responses within the same household</strong></span></p>
+<p>Households <strong>adapt to the new uncertainty level</strong>, with limited evidence of path dependence. Spending remains lower at ±20% when households first faced ±40%.</p>
+</div>
+</div>
+<p><a href="#/ambiguity-backup" class="example-button">Backup: ambiguity (Knightian uncertainty)</a></p>
+<aside class="notes">
+<p>Allocation responses are relative to the guaranteed-income scenario. The heterogeneity patterns are associations, not causal effects of income, liquidity, or debt. The within-household path comparisons are across randomized sequences, not both paths experienced by each respondent.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="closing" class="slide level2 closing center">
+<h2>Income uncertainty matters!</h2>
+<p><strong>Thank you.</strong></p>
+<div class="closing-contact">
+  <div class="closing-contact-details">
+    <strong>Xiaoting (Jasmine) Chen</strong><br>
+    <a href="mailto:chen@safe-frankfurt.de">chen@safe-frankfurt.de</a>
+  </div>
+  <div class="closing-qr-wrap">
+    <a href="https://jasminechenxiaoting.github.io" target="_blank" rel="noopener" aria-label="Visit Xiaoting Chen’s website">
+      <img src="figs/website-qr-code.png" alt="QR code linking to Xiaoting Chen’s website">
+    </a>
+    <span>Scan or click to visit my website</span>
+  </div>
+</div>
+</section>
+<section id="appendix" class="slide level2 divider center" data-visibility="uncounted">
+<h2>Appendix</h2>
+</section>
+<section id="intensive-table" class="slide level2 center" data-visibility="uncounted">
+<h2>Intensive margin estimates</h2>
+<p>Detailed estimates of allocation-share changes relative to guaranteed income. Standard errors are in parentheses; paired R is the correlation between log allocations.</p>
+<div>
+<table class="standard-results">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Spending
+</th>
+<th>
+Saving
+</th>
+<th>
+Debt repayment
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+A. ±20% uncertainty
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="estimate-row">
+<th>
+% change in allocation shares
+</th>
+<td>
+−2.0***
+</td>
+<td>
+3.9***
+</td>
+<td>
+2.6**
+</td>
+</tr>
+<tr>
+<th>
+Standard error
+</th>
+<td>
+(0.5)
+</td>
+<td>
+(1.5)
+</td>
+<td>
+(1.1)
+</td>
+</tr>
+<tr>
+<th>
+Paired R
+</th>
+<td>
+0.897
+</td>
+<td>
+0.810
+</td>
+<td>
+0.943
+</td>
+</tr>
+<tr>
+<th>
+Paired R²
+</th>
+<td>
+0.804
+</td>
+<td>
+0.655
+</td>
+<td>
+0.889
+</td>
+</tr>
+<tr>
+<th>
+Observations
+</th>
+<td>
+960
+</td>
+<td>
+837
+</td>
+<td>
+489
+</td>
+</tr>
+<tr>
+<th>
+B. ±40% uncertainty
+</th>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="estimate-row">
+<th>
+% change in allocation shares
+</th>
+<td>
+−6.6***
+</td>
+<td>
+12.3***
+</td>
+<td>
+7.8***
+</td>
+</tr>
+<tr>
+<th>
+Standard error
+</th>
+<td>
+(0.8)
+</td>
+<td>
+(1.9)
+</td>
+<td>
+(1.5)
+</td>
+</tr>
+<tr>
+<th>
+Paired R
+</th>
+<td>
+0.809
+</td>
+<td>
+0.715
+</td>
+<td>
+0.897
+</td>
+</tr>
+<tr>
+<th>
+Paired R²
+</th>
+<td>
+0.654
+</td>
+<td>
+0.511
+</td>
+<td>
+0.804
+</td>
+</tr>
+<tr>
+<th>
+Observations
+</th>
+<td>
+938
+</td>
+<td>
+790
+</td>
+<td>
+469
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="#/intensive" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('intensive')).h, Reveal.getIndices(document.getElementById('intensive')).v); return false;">Back to adjustment magnitudes</a></p>
+</section>
+<section id="intensive-common" class="slide level2 center" data-visibility="uncounted">
+<h2>Common-sample adjustment magnitudes</h2>
+<div class="stage" data-chart="intensiveCommon"></div>
+<p><a href="#/intensive" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('intensive')).h, Reveal.getIndices(document.getElementById('intensive')).v); return false;">Back to adjustment magnitudes</a></p>
+</section>
+<section id="income-uncertainty-distribution" class="slide level2 center" data-visibility="uncounted">
+<h2>Distribution of perceived income uncertainty</h2>
+<p><img data-src="figs/sd_to_hhinc_weighted_density_p99.png" alt="Survey-weighted distribution of perceived household income uncertainty relative to household income in wave 71 among respondents aged 20–65. Values above the 99th percentile are omitted. The mean is 0.059, median 0.03, 25th percentile 0, and 95th percentile 0.221." width="1100" height="660"></p>
+<p><a href="#/design" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('design')).h, Reveal.getIndices(document.getElementById('design')).v); return false;">Back to Main challenges</a></p>
+</section>
+<section id="adjustment-direction" class="slide level2 center" data-visibility="uncounted">
+<h2>Direction of adjustment</h2>
+<p><img data-src="figs/uncertainty_direction_of_adjustment.png" alt="Direction of allocation changes relative to guaranteed income. At ±20%, decrease / no change / increase: consumption 28.9 / 53.4 / 17.7 percent; saving 20.5 / 52.0 / 27.5 percent; debt repayment 7.9 / 76.6 / 15.4 percent. At ±40%: consumption 42.1 / 39.1 / 18.8 percent; saving 23.5 / 38.6 / 38.0 percent; debt repayment 9.7 / 66.0 / 24.4 percent. Debt repayment covers pre-treatment debtors only. Unweighted." width="1100" height="550"></p>
+<p><a href="#/extensive" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('extensive')).h, Reveal.getIndices(document.getElementById('extensive')).v); return false;">Back to household adjustment</a></p>
+</section>
+<section id="debt-composition-adjusters" class="slide level2 center" data-visibility="uncounted">
+<h2>Debt composition among repayment adjusters</h2>
+<p><img data-src="figs/debt_type_composition_repayment_adjusters.png" alt="Composition of debt types among households that adjusted debt repayment. At ±20% uncertainty, 39.3% had both secured and unsecured debt, 42.9% had secured debt only, and 17.9% had unsecured debt only. At ±40%, the shares were 32.7%, 53.1%, and 14.2%, respectively." width="1100" height="856"></p>
+<p><a href="#/extensive" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('extensive')).h, Reveal.getIndices(document.getElementById('extensive')).v); return false;">Back to household adjustment</a></p>
+<div class="stage glyph" data-chart="fork" data-state="quiet"></div>
+</section>
+<section id="income-uncertainty-example" class="slide level2 center" data-visibility="uncounted">
+<h2>Challenge 1: perceived uncertainty, not realized income</h2>
+<p><span class="slide-takeaway">Measure households’ <strong>perceived uncertainty about future income</strong>.</span></p>
+<p><span class="source">Related literature: <span class="citation" data-cites="dominitz_using_1997-2">Dominitz and Manski (1997)</span>; <span class="citation" data-cites="wang_perceived_2023">Wang (2023)</span>.</span></p>
+<p><a href="#/why-hard" class="example-button">Back to Motivation</a></p>
+<aside class="notes">
+<p>The distinction here is measurement, not identification of the mean versus the uncertainty. Realized income histories can inform a calibrated income process, but need not capture the uncertainty a household currently perceives about future income. Ask households for their subjective probabilities. The figure is schematic and imposes no comparison of means.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="remaining-challenges" class="slide level2 center" data-visibility="uncounted">
+<h2>Challenge 2: Perceived income uncertainty co-moves with expected income changes in existing survey data</h2>
+<p><span id="income-moments-example"></span></p>
+<div class="prose">
+<p><span class="slide-takeaway">Manipulate <strong>income uncertainty</strong> while holding <strong>expected income unchanged</strong>.</span></p>
+</div>
+<p><span class="source">Schematic illustration of probabilistic survey answers. The mean and uncertainty both change.</span></p>
+<p><a href="#/why-hard" class="example-button">Back to Motivation</a></p>
+<aside class="notes">
+<p>Compare Jasmine’s reported income distributions in two survey waves. Both the mean and the uncertainty change, and she reports planning to reduce current consumption. This joint observation alone does not identify the separate effect of uncertainty. The illustration shows a falling mean and a rising variance; co-movement need not be positive. Strictly, the second central moment is the variance, while the standard deviation is its square root. The curves schematically represent answers to a probabilistic income question. They illustrate a lower mean and higher uncertainty in the second wave, without assigning numerical probabilities or income values. They are not fitted distributions or survey estimates. Dashed vertical lines mark the two means. Observational identification requires additional assumptions or exogenous variation. The experiment varies the uncertainty while holding the scenario mean fixed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="identification-challenge" class="slide level2 center" data-visibility="uncounted">
+<h2>Challenge 3: the same household under different uncertainty</h2>
+<p><span id="causal-path-example"></span></p>
+<div class="split even cols">
+<div class="prose">
+<p><span class="colhead">Lower income uncertainty</span></p>
+<p>How would this household allocate its current income?</p>
+</div>
+<div class="prose">
+<p><span class="colhead">Higher income uncertainty</span></p>
+<p>How would <strong>the same household</strong> change its allocation?</p>
+</div>
+</div>
+<p><span class="slide-takeaway">How do the <strong>SAME household’s decisions</strong> change when income uncertainty changes?</span></p>
+<p><a href="#/why-hard" class="example-button">Back to Motivation</a></p>
+<aside class="notes">
+<p>This slide motivates a within-subject comparison without repeating the survey flow. Randomized scenario sequences support identification, while comparing the same household removes time-invariant household differences. Repeated observations alone do not establish causality. Path dependence is introduced later as a separate question about the same final uncertainty level reached through different histories.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ambiguity-backup" class="slide level2 divider fog center" data-visibility="uncounted">
+<h2>Backup · Ambiguity (Knightian uncertainty)</h2>
+<div class="stage glyph" data-chart="coin" data-mode="fog"></div>
+<p><a href="#/conclusion" class="example-button">Back to conclusion</a></p>
+<aside class="notes">
+<p>Households in group 2 face the same ±20 spread, and then one sentence changes. The probability of each outcome is unknown.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="design-ambiguity" class="slide level2 center" data-visibility="uncounted">
+<h2>Survey flow: ambiguity</h2>
+<img src="figs/ambiguity-flow-horizontal.svg" width="1100" height="420" alt="Horizontal ambiguity flow. Stage 0 prior collection is dashed. Groups 2 and 4 face known probabilities at Stage 2 and unknown probabilities at Stage 3, with their respective spreads unchanged.">
+<div class="prose">
+<p><span class="slide-takeaway">Hold the income spread fixed; change probabilities from <strong>50–50</strong> to <strong>unknown</strong>.</span></p>
+<p><a href="#/readings" class="example-button">Theoretical interpretations</a> <a href="#/preferences" class="example-button">Stated preferences</a></p>
+</div>
+<p><a href="#/conclusion" class="example-button">Back to conclusion</a></p>
+<aside class="notes">
+<p>This is a separate experimental component. Group 2 faces ±20 throughout; group 4 faces ±40 throughout. Stage 2 gives equal probabilities; Stage 3 leaves them unspecified, following the presentation numbering that includes prior collection. Unlike the known-probability spread comparison, withdrawing probabilities does not specify a mathematical expectation, so do not describe it as a mean-preserving spread. Compare stated allocations before and after probabilities are withdrawn. The uncertainty path comparisons used groups 1 and 3, while these ambiguity comparisons use groups 2 and 4.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ambiguity" class="slide level2 center" data-visibility="uncounted">
+<h2>On average, withdrawing the probability changes nothing</h2>
+<div class="split">
+<div class="prose">
+<p>At ±40, the spending share fell by about <span class="num primary-t"><span class="data" data-key="ambiguity.s40.spend.known" data-d="1" data-mul="100" data-abs="1"></span></span> percent with known odds. Withdrawing the odds moves it by <span class="num actor-b-t"><span class="data" data-key="ambiguity.s40.spend.fog" data-d="1" data-mul="100" data-abs="1"></span></span> percent more, indistinguishable from zero.</p>
+<p>The six blue bars, every outcome at both spreads, sit on the zero line.</p>
+<p>Known probabilities and unknown probabilities produce the same budget, on average.</p>
+<p><span class="source">Within-subject Δ log share, groups 2 and 4, 95% intervals. Table <em>From known to unknown probabilities</em>.</span></p>
+</div>
+<div class="stage" data-chart="ambiguity" data-animate="once"></div>
+</div>
+<p><a href="#/conclusion" class="example-button">Back to conclusion</a></p>
+<aside class="notes">
+<p>The coloured bars build first, then the blue ones, which are the payoff: six bars that barely leave zero. Let the silence do the work. Two honest notes if asked: these are groups 2 and 4 only, and their stage-1 responses are smaller than groups 1 and 3’s, which is a between-arm difference worth discussing. And the contrast that makes “nothing” meaningful: the swap groups, at the same second stage, did move when the spread changed. Then the natural objection: “nothing on average can hide a lot”. Agreed, and the next two slides take the average apart.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="retain" class="slide level2 center" data-visibility="uncounted">
+<h2>Three in four households enter exactly the same three numbers</h2>
+<div class="stack">
+<div class="prose">
+<p>Between 75 and 87 percent of respondents keep their split to the point when the odds are withdrawn. With the same reminder on screen at stage 1, between 47 and 61 percent had changed it when a spread arrived. The reminder makes “no change” easy. It does not make it automatic.</p>
+</div>
+<div class="stage" data-chart="retain"></div>
+</div>
+<p><a href="#/conclusion" class="example-button">Back to conclusion</a></p>
+<aside class="notes">
+<p>Grey is the no-change share. The comparison that separates inertia from retained beliefs is on this slide: the same form, with the same reminder, produced change in half the sample when the spread moved, and in a quarter when only the odds disappeared. Both readings in column two survive; what does not survive is reading one. The remaining quarter is the next slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tug" class="slide level2 center" data-visibility="uncounted">
+<h2>Among those who move, the two directions cancel</h2>
+<div class="stack">
+<div class="prose">
+<p>The quarter who adjust do not move one way. For every outcome and both spreads, the households who increase and the households who decrease contribute nearly equal and opposite amounts, and the net is the zero of two slides back. The moves themselves are not small: a mover changes their share by roughly 20 percent for spending and 50 percent for saving.</p>
+</div>
+<div class="stage" data-chart="tug"></div>
+</div>
+<p><a href="#/conclusion" class="example-button">Back to conclusion</a></p>
+<aside class="notes">
+<p>Solid up, hatched down, the black tick is the sum. The per-mover size is the contribution divided by the share: 0.064 / 0.129 is about 0.5 log points for saving increasers at ±20, 0.019 / 0.084 about 0.2 for spending. So “ambiguity plays no role” is wrong as a statement about households and right as a statement about the average. Who moves which way lines up with prior income perception, which is the next step in the heterogeneity work.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="lena-budget" class="slide level2 center" data-visibility="uncounted">
+<h2>For Jasmine, ±40 percent means about €200 less spending a month</h2>
+<div class="stack">
+<div class="prose">
+<p>Jasmine’s monthly income is €4,500 and she splits it 70 / 20 / 10. Apply the estimates. At ±40 percent she spends about <strong>€200 less</strong> a month, puts about <strong>€120 more</strong> into savings and about <strong>€37 more</strong> into debt. The mean of her income has not moved by a euro.</p>
+<p><span class="source">Stylised level, measured slopes. The 70 / 20 / 10 split is illustrative; the panel’s median prior split is 70 / 20 / 5 (<a href="#/prior">prior allocations</a>). Each category moves by its own estimated log change, so the three moves need not sum to zero.</span></p>
+</div>
+<div class="stage" data-chart="budget"></div>
+</div>
+<p><a href="#/intensive" class="example-button">Back to intensive margin</a></p>
+<aside class="notes">
+<p>The bar opens at ±40, the state the title claims. Click “Guaranteed” to show where she started, then ±20, then back to ±40. The dashed ticks mark the guaranteed-income split. Say the euro numbers, not the log points. If asked why the three moves do not net to zero: each is the mean of a separate log change, and means of log changes do not respect an individual budget constraint; the euro translation is an illustration of magnitude, not an accounting identity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="measure" class="slide level2 center" data-visibility="uncounted">
+<h2>BOP-HH probabilistic question on income expectations</h2>
+<p><img data-src="figs/probabilistic-income-question.svg" class="income-question-chart" alt="Illustrative probabilistic income answer using the survey's income-change bins. Assigned probabilities sum to 100 percent and describe both expected income growth and perceived income uncertainty." width="1100" height="330"></p>
+<div class="split even income-moments">
+<div class="prose">
+<p><strong>Perceived income growth</strong></p>
+<p><span class="math display">\mu_{i,t}=\frac{\mathbb{E}_{i,t}[\Delta y_{i,t+1}]}{y_{i,t}}</span></p>
+<p>Mean of the elicited distribution, relative to current income.</p>
+</div>
+<div class="prose">
+<p><strong>Perceived income uncertainty</strong></p>
+<p><span class="math display">\sigma_{i,t}=\frac{\sqrt{\operatorname{Var}_{i,t}(\Delta y_{i,t+1})}}{y_{i,t}}</span></p>
+<p>Standard deviation of the elicited distribution, relative to current income.</p>
+</div>
+</div>
+<p><a href="#/panel" class="example-button">Back to This paper</a> <a href="#/design" class="example-button" onclick="Reveal.slide(Reveal.getIndices(document.getElementById('design')).h, Reveal.getIndices(document.getElementById('design')).v); return false;">Back to Main challenges</a></p>
+<p><span class="slide-takeaway">One probabilistic answer measures both expected income growth and perceived uncertainty.</span></p>
+<aside class="notes">
+<p>The question at the top of the figure is a paraphrase. The chart uses the same twelve euro income-change bins as the original appendix graphic, with a deliberately illustrative answer rather than respondent data. Probabilities sum to 100 percent. Both moments come from the same subjective distribution over monthly household income changes twelve months ahead. The expectation and variance notation summarizes the measurement; implementing these moments from bins requires choices for representative outcomes within each bin, including the open-ended tails. Current income is known, so the variance of future income equals the variance of its change. The formulas preserve the normalization by current household income used elsewhere in the presentation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mean-preserving-spread" class="slide level2 center" data-visibility="uncounted">
+<h2>Mean-preserving income spreads</h2>
+<div class="split even">
+<div class="figwrap">
+<p><img data-src="figs/mean-preserving-spread.svg" alt="A single curved lottery diagram shows Jasmine’s current income branching into equally likely higher and lower income. Equal-sized gains and losses leave expected income unchanged, as shown by the dashed central line." width="620" height="390"></p>
+</div>
+<div class="prose">
+<p><span class="colhead">Survey question</span></p>
+<p>Imagine the following scenarios: over the next 12 months, your household income will either <strong>increase by 20% or decrease by 20%</strong>. Both scenarios would happen with <strong>equal chance</strong>.</p>
+<p>Only based on the above information, how would you now allocate your <strong>current month’s household income</strong>?</p>
+<p><strong>Note:</strong> The numbers you enter across all categories must add up to <strong>100</strong>.</p>
+<div class="allocation-fields">
+<p>For spending <span class="allocation-blank">____%</span></p>
+<p>For saving <span class="allocation-blank">____%</span></p>
+<p>For debt repayment <span class="allocation-blank">____%</span></p>
+</div>
+</div>
+</div>
+<div class="prose">
+<p><span class="mps-takeaway"><strong>The spread changes; expected income stays fixed.</strong></span></p>
+</div>
+<p><a href="#/design" class="example-button">Back to survey flow</a> <a href="#/panel" class="example-button">Back to challenge 2 solution</a> <a href="#/survey" class="example-button">Original survey screen</a></p>
+<aside class="notes">
+<p>The diagram shows a single mean-preserving spread from guaranteed current income to equally likely higher and lower income. The gain and loss have equal magnitude. The dashed central line marks unchanged expected income. The diagram intentionally omits numerical treatment sizes; the survey wording alongside it provides the concrete experimental example. This describes the scenario mean, not evidence that every respondent interprets the mean identically. The slide uses the presenter-provided survey wording, with spelling and grammar corrected. Blank fields illustrate the response categories and contain no assumed answers. Responses allocate current monthly income, not hypothetical future income. Outcomes are stated choices. The original screenshot is linked separately.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="survey" class="slide level2 center" data-visibility="uncounted">
+<h2>The vignette as the respondent saw it</h2>
+<div class="figwrap raster tall mono">
+<p><img data-src="figs/survey_example.png"></p>
+</div>
+<p><span class="figcap">The ±40 branch of the stage-1 question, with the reminder of the respondent’s own split under the guarantee. <a href="#/design">Back to survey flow</a>.</span></p>
+</section>
+<section id="guarantee" class="slide level2 center" data-visibility="uncounted">
+<h2>The guaranteed-income anchor is itself a shock</h2>
+<div class="split wide-left">
+<div class="figwrap">
+<p><img data-src="figs/guarantee_heterogeneity_expected_income.svg"></p>
+</div>
+<div class="prose">
+<p>Relative to their prior allocation, households told their income is guaranteed unchanged cut the spending share by about <span class="num primary-t"><span class="data" data-key="guarantee.0.b" data-d="1" data-mul="100" data-abs="1"></span></span> percent and raise the saving share by about <span class="num contrast-t"><span class="data" data-key="guarantee.1.b" data-d="1" data-mul="100" data-abs="1"></span></span> percent. Debt repayment does not move.</p>
+<p>The 68 percent who expected income growth read “unchanged” as bad news. Even the few who expected no change cut spending, so the hypothetical framing itself may move answers. Every stage-1 estimate is a change from this anchor.</p>
+<p><span class="source">Paired tests on within-person log changes, guarantee minus prior; 2,121 / 1,898 / 1,074 respondents. Figure by prior expected income change, in percent. Dark: decrease. Grey: increase. <a href="#/panel">Back to the talk</a>.</span></p>
+</div>
+</div>
+</section>
+<section id="prior" class="slide level2 center" data-visibility="uncounted">
+<h2>Prior allocations differ by belief, buffer stock and leverage</h2>
+<div class="split wide-left">
+<div class="figwrap">
+<p><img data-src="figs/prior_allocation_channels.svg"></p>
+</div>
+<div class="prose">
+<p>Prior allocation out of 100: spending mean 65.8 and median 70, saving mean 20.8 and median 20, debt repayment mean 13.4 and median 5. 2,172 respondents, 1,342 with positive debt repayment.</p>
+<p>High-minus-low tertile differences by variable. Perceived income uncertainty stands out as its own channel. Buffer-stock variables shift the spending–saving margin. Leverage shifts debt repayment.</p>
+<p><span class="source">Dark: the high tertile allocates less. Grey: more. Stars are Benjamini–Hochberg adjusted, weighted F-tests. <a href="#/lena-budget">Back to the talk</a>.</span></p>
+</div>
+</div>
+</section>
+<section id="robust1" class="slide level2 center" data-visibility="uncounted">
+<h2>The section-1 estimates survive the non-parametric and baseline checks</h2>
+<div class="split even cols">
+<div class="prose">
+<p><span class="colhead">Wilcoxon signed-rank</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Outcome</th>
+<th>±20 p</th>
+<th>±40 p</th>
+<th>zero share 20 / 40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Spending</td>
+<td>&lt;0.001</td>
+<td>&lt;0.001</td>
+<td>0.53 / 0.39</td>
+</tr>
+<tr class="even">
+<td>Saving</td>
+<td>0.002</td>
+<td>&lt;0.001</td>
+<td>0.52 / 0.39</td>
+</tr>
+<tr class="odd">
+<td>Debt repayment</td>
+<td>0.001</td>
+<td>&lt;0.001</td>
+<td>0.86 / 0.80</td>
+</tr>
+</tbody>
+</table>
+<p>961 / 938 respondents. The parametric results hold without distributional assumptions.</p>
+</div>
+<div class="prose">
+<p><span class="colhead">Baseline dependence</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>β on baseline</th>
+<th>p</th>
+<th>R²</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ΔSpending</td>
+<td>−0.093</td>
+<td>&lt;0.001</td>
+<td>0.029</td>
+</tr>
+<tr class="even">
+<td>ΔSaving</td>
+<td>−0.122</td>
+<td>&lt;0.001</td>
+<td>0.036</td>
+</tr>
+<tr class="odd">
+<td>ΔDebt</td>
+<td>+0.023</td>
+<td>0.002</td>
+<td>0.005</td>
+</tr>
+</tbody>
+</table>
+<p>Baseline shares explain under 4 percent of the variation, so the responses are not mechanical rescalings. Regressing each response on demographic and financial groups gives almost no significant coefficients, so composition effects do not drive the averages.</p>
+</div>
+</div>
+<p><span class="figcap"><a href="#/intensive">Back to the talk</a>.</span></p>
+</section>
+<section id="order" class="slide level2 center" data-visibility="uncounted">
+<h2>Order of presentation does not matter, with one marginal exception</h2>
+<div class="split even cols">
+<div class="prose">
+<p><span class="colhead">Order effect</span></p>
+<p>Same level, different order: group 1 stage 2 vs group 3 stage 1, and vice versa. Two-sample t-tests; mean difference in allocation points (of 100) with the p-value in parentheses.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Spending</th>
+<th>Saving</th>
+<th>Debt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>±40</td>
+<td>0.709 (0.40)</td>
+<td>−0.456 (0.57)</td>
+<td>−0.253 (0.55)</td>
+</tr>
+<tr class="even">
+<td>±20</td>
+<td>1.043 (0.05)</td>
+<td>−0.675 (0.20)</td>
+<td>−0.369 (0.20)</td>
+</tr>
+</tbody>
+</table>
+<p>One marginal result for spending at ±20, the same exception as in the talk.</p>
+</div>
+<div class="prose">
+<p><span class="colhead">Sequence-order interaction</span></p>
+<p><span class="math inline">\Delta_i = Y_{40,i} - Y_{20,i}</span> regressed on an indicator for the 40→20 order.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Outcome</th>
+<th>Coefficient (SE)</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Spending</td>
+<td>0.334 (0.572)</td>
+<td>0.56</td>
+</tr>
+<tr class="even">
+<td>Saving</td>
+<td>−0.240 (0.557)</td>
+<td>0.67</td>
+</tr>
+<tr class="odd">
+<td>Debt repayment</td>
+<td>−0.094 (0.299)</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+<p>No path dependence or experimenter-demand effect in the within-person difference.</p>
+</div>
+</div>
+<p><span class="figcap"><a href="#/paths">Back to the talk</a>.</span></p>
+</section>
+<section id="signratio" class="slide level2 center" data-visibility="uncounted">
+<h2>Stage-2 moves have the right sign, and are 13 to 29 percent of the stage-1 allocation</h2>
+<div class="split even cols">
+<div class="prose">
+<p><span class="colhead">Sign test, among those who adjust</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Direction</th>
+<th>Spending</th>
+<th>Saving</th>
+<th>Debt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Increase 20→40, share ↑</td>
+<td>0.36*** (220)</td>
+<td>0.59*** (216)</td>
+<td>0.65** (68)</td>
+</tr>
+<tr class="even">
+<td>Decrease 40→20, share ↓</td>
+<td>0.67*** (222)</td>
+<td>0.37*** (213)</td>
+<td>0.41 (76)</td>
+</tr>
+</tbody>
+</table>
+<p>Binomial test against one half, n of adjusters in brackets. As the source reads it: 59 percent of savers increase when uncertainty rises, 67 percent of spenders decrease when it falls.</p>
+</div>
+<div class="prose">
+<p><span class="colhead">Ratio test, relative to the stage-1 allocation</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Direction</th>
+<th>Spending</th>
+<th>Saving</th>
+<th>Debt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20→40</td>
+<td>−0.219**</td>
+<td>+0.178**</td>
+<td>+0.292***</td>
+</tr>
+<tr class="even">
+<td>40→20</td>
+<td>+0.156***</td>
+<td>−0.131***</td>
+<td>−0.095</td>
+</tr>
+</tbody>
+</table>
+<p>Mean of the stage-2 change divided by the stage-1 allocation. Symmetric signs across directions. Wilcoxon tests reject no change for every outcome in both directions, and the absolute moves do not differ between directions.</p>
+</div>
+</div>
+<p><span class="figcap"><a href="#/paths">Back to the talk</a>.</span></p>
+</section>
+<section id="preferences" class="slide level2 center" data-visibility="uncounted">
+<h2>Most respondents prefer the guarantee, and two in five say they prefer unknown odds</h2>
+<div class="figwrap pair wide">
+<p><img data-src="figs/uncertainty_preference.svg"> <img data-src="figs/ambiguity_preference.svg"></p>
+</div>
+<p><span class="figcap"><strong>Left:</strong> which scenario respondents say they prefer (guarantee, ±20, ±40, no preference). <strong>Right:</strong> 50-50 odds versus unknown odds. Survey-weighted tests find no systematic demographic or balance-sheet differences across these preference groups; uncertainty preference is only weakly related to perceived income uncertainty. <a href="#/readings">Back to the talk</a>.</span></p>
+</section>
+<section id="model" class="slide level2 center" data-visibility="uncounted">
+<h2>The rational benchmark: a precautionary premium proportional to the variance</h2>
+<div class="split even">
+<div class="prose">
+<p>Each period the household splits resources across consumption <span class="math inline">c</span>, liquid saving <span class="math inline">a'</span> and debt repayment <span class="math inline">x</span>: <span class="math display">V(a,b,y;F)=\max_{c,a',x}\{u(c)+\beta\,\mathbb{E}_F[V(a',b',y';F)]\}</span> with <span class="math inline">c + a' + x = y + R_a a</span> and <span class="math inline">b' = R_b b - x</span>. CRRA utility gives <span class="math inline">u''' &gt; 0</span>, prudence, the source of the precautionary motive <span class="citation" data-cites="skinner_risky_1988 kimball_precautionary_1990">(Skinner 1988; Kimball 1990)</span>.</p>
+</div>
+<div class="prose">
+<p>The vignette is a binary mean-preserving spread, <span class="math inline">y' \in \{\bar y - d, \bar y + d\}</span> with <span class="math inline">d = \delta \bar y</span>.</p>
+<p>The precautionary premium is <span class="math inline">\psi \approx \tfrac12 \eta\,\sigma^2</span>, where <span class="math inline">\eta = -u'''/u''</span> is absolute prudence and <span class="math inline">\sigma^2 = (\delta \bar y)^2</span>. So <span class="math inline">\psi</span> is quadratic in <span class="math inline">\delta</span>: moving from 0.2 to 0.4 quadruples it, while a response linear in <span class="math inline">\delta</span> doubles.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Shock</th>
+<th>ΔC</th>
+<th>ΔS</th>
+<th>ΔD</th>
+<th>size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 → 0.2</td>
+<td>↓</td>
+<td>↑</td>
+<td>↑</td>
+<td><span class="math inline">\psi_{20}</span></td>
+</tr>
+<tr class="even">
+<td>0 → 0.4</td>
+<td>↓</td>
+<td>↑</td>
+<td>↑</td>
+<td><span class="math inline">4\psi_{20}</span></td>
+</tr>
+<tr class="odd">
+<td>0.2 → 0.4</td>
+<td>↓</td>
+<td>↑</td>
+<td>↑</td>
+<td><span class="math inline">3\psi_{20}</span></td>
+</tr>
+<tr class="even">
+<td>0.4 → 0.2</td>
+<td>↑</td>
+<td>↓</td>
+<td>↓</td>
+<td><span class="math inline">-3\psi_{20}</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="figcap"><a href="#/scaling">Back to the talk</a>.</span></p>
+</div>
+</div>
+</section>
+<section id="scaling-benchmarks" class="slide level2 center" data-visibility="uncounted">
+<h2>Response scaling: comparison with theoretical benchmarks</h2>
+<div class="split">
+<div class="prose">
+<p>A response linear in the spread would <strong>double</strong>. Under the standard precautionary benchmark the premium is proportional to the <em>variance</em>, so it would <strong>quadruple</strong> <span class="citation" data-cites="kimball_precautionary_1990">(Kimball 1990)</span>.</p>
+<p>The three ratios land in between, at <span class="num primary-t"><span class="data" data-key="intensive.rows.0.ratio" data-d="1"></span></span>, <span class="num contrast-t"><span class="data" data-key="intensive.rows.1.ratio" data-d="1"></span></span> and <span class="num actor-a-t"><span class="data" data-key="intensive.rows.2.ratio" data-d="1"></span></span> times.</p>
+<p>Their intervals are wide. The data say “more than proportional” clearly, and cannot pick between the two benchmarks.</p>
+<p><span class="room">Ratio of the ±40 to the ±20 estimate, with delta-method 95% intervals treating the two groups as independent. <a href="#/model" class="example-button">Model</a> <a href="#/scaling" class="example-button">Back to results</a></span></p>
+</div>
+<div class="stage" data-chart="scaling"></div>
+</div>
+<aside class="notes">
+<p>The two curves are stylised benchmarks, the three dots are the ratios from the previous slide, the whiskers are delta-method intervals computed from the slide’s own standard errors. Say the honest version: the point estimates sit at three, the intervals reach both two and four. What survives is that the response is at least proportional to the spread. The appendix room has the model and why the premium scales with the variance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="readings" class="slide level2 center" data-visibility="uncounted">
+<h2>Two readings make opposite predictions when the probabilities disappear</h2>
+<div class="split even cols">
+<div class="prose">
+<p><span class="colhead">Reading one: <span class="actor-b-t">ambiguity aversion</span></span></p>
+<p>Households treat unknown odds as worse than known ones <span class="citation" data-cites="gilboa_maxmin_1989">(Gilboa and Schmeidler 1989)</span>. Macro models with ambiguity-averse households predict a <strong>stronger</strong> precautionary cut when the probability is withdrawn <span class="citation" data-cites="ilut_ambiguous_2014 ilut_hanks_2025">(Ilut and Schneider 2014; Ilut et al. 2025)</span>.</p>
+</div>
+<div class="prose">
+<p><span class="colhead">Reading two: retained beliefs, or inertia</span></p>
+<p>Households already hold a probability in mind <span class="citation" data-cites="andre2026people">(Andre et al. 2026)</span>, and the form shows them their previous split. Telling them the odds are unknown changes <strong>nothing</strong>.</p>
+<p>Asked directly, only a quarter of respondents say they prefer 50-50 odds to unknown ones.</p>
+</div>
+</div>
+<div class="prose">
+<p><span class="q">Max, in group 2, faced the ±20 coin flip and chose his split. Now the odds are withdrawn. Which reading wins?</span></p>
+<p><a href="#/design-ambiguity" class="example-button">Back to ambiguity</a></p>
+<p><span class="room">What respondents say they prefer: <a href="#/preferences">stated preferences</a>.</span></p>
+</div>
+<aside class="notes">
+<p>Third bet. Hands for “stronger response”, hands for “no change”. In most macro rooms the first column wins the vote, which is what makes the next slide land. The stated preference is in the appendix: 26 percent prefer 50-50, 41 percent prefer unknown odds, 33 percent have no preference.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mpc-literature" class="slide level2 center" data-visibility="uncounted">
+<h2>MPC literature and the contribution of this experiment</h2>
+<div class="prose">
+<ul>
+<li><strong>Heterogeneity and household balance sheets:</strong> <span class="citation" data-cites="jappelli_fiscal_2014 fagereng_mpc_2021 kaplan_marginal_2022">(Jappelli and Pistaferri 2014; Fagereng et al. 2021; Kaplan and Violante 2022)</span>.</li>
+<li><strong>Experimental transfers and survey elicitation:</strong> <span class="citation" data-cites="boehm_five_2025 crossley_eliciting_2025">(Boehm et al. 2025; Crossley et al. 2025)</span>.</li>
+<li><strong>The link to subjective uncertainty:</strong> <span class="citation" data-cites="kosar_subjective_2025">(Koşar and Melcangi 2025)</span> relates earnings uncertainty to reported MPCs and evaluates consumption–saving models.</li>
+</ul>
+<p><strong>Our contribution:</strong> vary income uncertainty while holding expected income in the scenario fixed, and measure adjustments in current stated consumption, saving and debt repayment within households.</p>
+<p><strong>Different estimand:</strong> an MPC measures the consumption response per unit of additional income. Here, the treatment changes the income distribution’s spread without adding income.</p>
+<p><a href="#/lit" class="example-button">Back to literature</a> <a href="#/why-hard" class="example-button">Back to motivation</a></p>
+</div>
+<aside class="notes">
+<p>Jappelli and Pistaferri studies reported responses and heterogeneity. Fagereng, Holm and Natvik uses lottery prizes and household balance sheets. Boehm, Fize and Jaravel provides randomized-transfer evidence. Crossley and coauthors shows that survey wording affects elicited MPCs, relevant to interpreting hypothetical allocations. Koşar and Melcangi is particularly close: subjective uncertainty covaries with reported MPCs, and they compare that relationship with consumption–saving models. Our experiment contributes exogenous scenario variation in the spread, rather than a new estimate of an MPC. Avoid claiming that the existing MPC literature lacks causal identification: randomized-transfer studies already provide it for their own estimand.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="all-path-differences" class="slide level2 center" data-visibility="uncounted">
+<h2>All path-dependence comparisons</h2>
+<div class="stage" data-chart="pathdiff"></div>
+<p><a href="#/paths" class="example-button">Back to the spending exception</a></p>
+</section>
+<section id="hetero-distribution" class="slide level2 center" data-visibility="uncounted">
+<h2>Responses differ widely and come in round steps</h2>
+<div class="stats">
+<div class="stat">
+<p><span class="k f">45%</span> <span class="l">leave the allocation unchanged</span></p>
+</div>
+<div class="stat">
+<p><span class="k f">5 or 10 pp</span> <span class="l">common adjustment sizes</span></p>
+</div>
+<div class="stat">
+<p><span class="k f">76%</span> <span class="l">of saving cutters cut saving again in the subsequent scenario</span></p>
+</div>
+</div>
+<div class="prose">
+<ul>
+<li>More than <strong>95%</strong> of allocation answers are multiples of five.</li>
+<li>About <strong>one in five</strong> households cuts saving, opposite to the usual precautionary-saving prediction.</li>
+</ul>
+</div>
+<p><span class="slide-takeaway">A small average response can hide households moving in opposite directions.</span></p>
+<p><a href="#/heterogeneity-summary" class="example-button">Back to heterogeneity conclusions</a> <a href="#/heterogeneity-finances" class="example-button">Financial circumstances</a></p>
+<aside class="notes">
+<p>Source: user-supplied heterogeneity results, “Responses differ widely, and come in round steps.” These are the reported summary statistics, not reconstructed microdata. The source does not specify the aggregation behind the 45% unchanged statistic, so do not equate it with a particular outcome-specific extensive-margin estimate. The referenced fig_stage1_response_hist.pdf was not available in the presentation folder. No histogram is inferred from these summaries. Percentage points (pp) refer to changes in allocation shares; the multiple-of-five statistic refers to reported answers.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hetero-prior" class="slide level2 center" data-visibility="uncounted">
+<h2>Prior uncertainty: little predictive evidence in these tests</h2>
+<div class="prose">
+<p><strong>Two interpretations:</strong> households may respond to the vignette net of prior uncertainty (“increment”), or combine it with prior uncertainty (“stacking”).</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Outcome</th>
+<th style="text-align: right;">Treatment per pp, <span class="math inline">\theta</span></th>
+<th style="text-align: right;">Prior uncertainty coefficient</th>
+<th style="text-align: right;">Increment test: <span class="math inline">\beta_{pre}+\theta</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Consumption</td>
+<td style="text-align: right;">−0.072</td>
+<td style="text-align: right;">−0.138</td>
+<td style="text-align: right;">−0.210*</td>
+</tr>
+<tr class="even">
+<td>Saving</td>
+<td style="text-align: right;">+0.045</td>
+<td style="text-align: right;">+0.180</td>
+<td style="text-align: right;">+0.224*</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Within-person test:</strong> <span class="math inline">N=228</span>; <span class="math inline">\theta=\beta_{40}/20</span>.</li>
+<li>Prior coefficients have the same sign as the treatment effect, but are <strong>not statistically significant</strong>.</li>
+<li>First-spread regressions: <span class="math inline">N\approx400</span>, joint <span class="math inline">p=0.12</span>–<span class="math inline">0.98</span>; adding prior uncertainty increases <span class="math inline">R^2</span> by at most 0.03.</li>
+</ul>
+</div>
+<p><span class="slide-takeaway">The increment restriction is rejected; the estimates do not establish a stacking mechanism.</span></p>
+<p><a href="#/heterogeneity-summary" class="example-button">Back to heterogeneity conclusions</a> <a href="#/heterogeneity-finances" class="example-button">Financial circumstances</a></p>
+<aside class="notes">
+<p>Source: supplied “Pre-existing uncertainty” and “Increment is rejected” slides. Coefficients and stars are reproduced as supplied; the source does not specify the star threshold. The simple increment restriction is beta_pre + theta = 0. The signs are consistent with stacking but do not identify it. The modest belief-data subsample limits precision. The supplied point-estimate sums reflect underlying rounding: the saving test is reported as 0.224 although the displayed components sum to 0.225. Preserve the reported test rather than recomputing from rounded inputs. The supplied text compares prior and vignette uncertainty in percentage units; interpreting their sum requires consistent measurement and is a behavioral hypothesis, not an identity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hetero-budget" class="slide level2 center" data-visibility="uncounted">
+<h2>Actual allocations help explain vignette responses</h2>
+<div class="prose">
+<table class="caption-top">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Finding</th>
+<th style="text-align: right;">Reported result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identical actual and guaranteed-income allocations</td>
+<td style="text-align: right;">78%</td>
+</tr>
+<tr class="even">
+<td>Actual consumption coefficient, controlling for guaranteed-income allocation</td>
+<td style="text-align: right;">0.30**</td>
+</tr>
+<tr class="odd">
+<td>Coefficient after adding prior perceived uncertainty</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+</tbody>
+</table>
+<p>The prior-uncertainty coefficient remains insignificant.</p>
+</div>
+<p><span class="slide-takeaway">Actual budgets predict stated allocations beyond the guaranteed-income benchmark.</span></p>
+<p><a href="#/heterogeneity-summary" class="example-button">Back to heterogeneity conclusions</a> <a href="#/heterogeneity-finances" class="example-button">Financial circumstances</a></p>
+<aside class="notes">
+<p>Source: supplied “What carries over is the real budget” slide. Coefficients describe the relationship of the first-spread consumption allocation to the actual allocation, holding the guaranteed-income allocation fixed. They are not causal effects of actual consumption. The guaranteed allocation may reflect desired behavior under certainty; an aspirational interpretation is not directly established. The supplied source does not define the significance-star threshold. Do not interpret the absence of a significant uncertainty coefficient as proof that beliefs never matter.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hetero-income" class="slide level2 center" data-visibility="uncounted">
+<h2>Income differences in allocation responses</h2>
+<div class="income-heterogeneity-layout">
+  <img src="figs/income_heterogeneity_contrasts.png" alt="Forest plot of top-versus-bottom income quartile differences in consumption, saving, and debt repayment responses under ±20% and ±40% uncertainty. Open circles show income-only regressions; filled circles control for liquidity and debt. Error bars are 95% confidence intervals.">
+  <div class="income-baseline-stat">
+    <h3>Income &amp; allocation · ±20%</h3>
+    <p class="income-stat-caption">Income: weighted mean €/mo · allocation: %</p>
+    
+<table class="income-summary-table caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Quartile</th>
+<th data-quarto-table-cell-role="th">HH inc.</th>
+<th data-quarto-table-cell-role="th">Cons.</th>
+<th data-quarto-table-cell-role="th">Save</th>
+<th data-quarto-table-cell-role="th">Debt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Bottom</th>
+<td>2,496</td>
+<td>71.0</td>
+<td>19.5</td>
+<td>9.5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Top</th>
+<td>10,357</td>
+<td>51.7</td>
+<td>33.0</td>
+<td>15.4</td>
+</tr>
+</tbody>
+</table>
+
+    <p class="income-stat-n">Allocation N: bottom=230; top=83.</p>
+  </div>
+</div>
+<ol class="income-heterogeneity-takeaways">
+  <li>At ±20%, higher-income households cut consumption more and raise saving more.</li>
+  <li>Bottom-income households allocate 71.0% to consumption under uncertainty, versus 51.7% for the top quartile; this high allocation may limit further cuts.</li>
+  <li>Debt repayment is not significantly related to household income at either uncertainty level.</li>
+</ol>
+<p><a href="#/heterogeneity-finances" class="example-button">Back to financial circumstances</a></p>
+<aside class="notes">
+<p>Contrasts are top income quartile minus bottom income quartile from the user’s updated regression output. Outcome is the change in allocation share (percentage points). Open points show the income-quartile-only specification; filled points additionally control for liquidity and debt. At ±20%, the adjusted consumption contrast is −1.987 pp (p=.055) and the adjusted saving contrast is +2.434 pp (p=.025); the adjusted debt contrast is not significant (p=.506). At ±40%, only the saving contrast is statistically distinguishable from zero: −3.862 pp (p=.044), meaning the top quartile increases saving less than the bottom quartile. N=889 at ±20%; N=882 at ±40%. The right-hand table combines weighted mean monthly household income and ±20% uncertainty-stage weighted allocation means. Income weighted means use N=481 (bottom) and N=182 (top); allocation means use N=230 and N=83, respectively. Income is not randomized, so these are conditional associations, not causal income effects. The possible spending-capacity interpretation is suggestive, not directly tested.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hetero-liquidity" class="slide level2 center" data-visibility="uncounted">
+<h2>High-liquidity households are less likely to increase debt repayment</h2>
+<div class="liquidity-heterogeneity-layout">
+  <img src="figs/liquidity_extensive_contrasts.png" alt="Forest plot of middle- and top-liquidity group differences relative to the bottom group in the probability of increasing debt repayment. Separate panels show ±20% and ±40% uncertainty. Open circles show liquidity-only regressions; filled circles control for income and debt. Error bars are 95% confidence intervals.">
+  <div class="liquidity-summary">
+    <h3>Liquidity-to-income by group</h3>
+    <p>Weighted mean L/I ratio; repayment-increase rate and N</p>
+    
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Group</th>
+<th data-quarto-table-cell-role="th">Mean L/I</th>
+<th data-quarto-table-cell-role="th">±20%<br>
+rate (N)</th>
+<th data-quarto-table-cell-role="th">±40%<br>
+rate (N)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Bottom</th>
+<td>0.70</td>
+<td>9.5% (230)</td>
+<td>18.9% (214)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Middle</th>
+<td>8.81</td>
+<td>6.6% (447)</td>
+<td>10.8% (438)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Top</th>
+<td>52.6</td>
+<td>5.0% (212)</td>
+<td>8.3% (230)</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+<ol class="liquidity-takeaways">
+  <li>At ±40%, the middle and top groups are less likely than the bottom group to increase repayment; adjusted differences are −9.2 pp and −11.4 pp.</li>
+  <li>Both differences are statistically significant (p=.021 and p=.010); their 95% confidence intervals exclude zero.</li>
+</ol>
+<p><a href="#/heterogeneity-finances" class="example-button">Back to financial circumstances</a> <a href="#/hetero-shapley" class="example-button">Explanatory shares</a></p>
+<aside class="notes">
+<p>The figure shows contrasts in the probability of increasing debt repayment, relative to the bottom liquidity group. At ±40%, liquidity-only differences are −8.1 pp for the middle group (95% CI [−16.0, −0.2], p=.045) and −10.6 pp for the top group (95% CI [−19.2, −2.0], p=.016). With income and debt controls, the differences are −9.2 pp (95% CI [−17.0, −1.4], p=.021) and −11.4 pp (95% CI [−20.0, −2.7], p=.010). At ±20%, neither contrast is significant. The table reports weighted mean liquidity-to-income ratios and repayment-increase rates with observations by uncertainty group. Liquidity is not randomized; estimates are conditional associations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="debt-adjustment-groups" class="slide level2 center">
+<h2>Do debt repayment adjusters change other allocations differently?</h2>
+<div class="debt-status-comparison">
+  <div class="debt-status-panel">
+    <h3>Debt repayment non-adjusters</h3>
+    <img src="figs/debt_nonadjusters_panel.png" alt="Mean consumption and saving changes among households whose debt repayment changed by less than 0.1 percentage points. Each estimate shows its 95% confidence interval and sample size; ±20% is hatched and ±40% solid.">
+  </div>
+  <div class="debt-status-panel">
+    <h3>Debt repayment adjusters</h3>
+    <img src="figs/debt_adjusters_panel.png" alt="Mean consumption, saving, and debt repayment changes among households who changed their debt repayment. Each estimate shows its 95% confidence interval and sample size; ±20% is hatched and ±40% solid.">
+  </div>
+</div>
+<p class="debt-status-note">Mean within-household allocation changes in percentage points. Error bars are 95% confidence intervals; labels report N for each estimate. The non-adjuster sample has debt repayment unchanged within 0.1 percentage points.</p>
+</section>
+<section id="hetero-debt" class="slide level2 center" data-visibility="uncounted">
+<h2>Does debt type predict repayment increases?</h2>
+<div class="debt-type-results-layout">
+  <img src="figs/debt_type_repayment_increase.png" alt="Forest plot showing the difference in probability of increasing debt repayment for mortgage-only, consumer-debt-only, and both-debt households relative to no-debt households. Separate panels show ±20% and ±40% uncertainty. Open markers show debt-type-only regressions; filled markers control for household income and liquidity. Error bars are 95% confidence intervals.">
+  <div class="debt-type-counts">
+    <h3>Debt-type sample</h3>
+    <p>Share within uncertainty group; observations in parentheses</p>
+    
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Debt type</th>
+<th data-quarto-table-cell-role="th">±20%</th>
+<th data-quarto-table-cell-role="th">±40%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">No debt</th>
+<td>48.3% (458)</td>
+<td>47.2% (437)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Mortgage only</th>
+<td>24.4% (232)</td>
+<td>26.9% (249)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Consumer only</th>
+<td>12.9% (122)</td>
+<td>11.8% (109)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Both</th>
+<td>14.4% (137)</td>
+<td>14.1% (130)</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+<p class="debt-type-takeaway">At ±20%, consumer-debt-only households are more likely to raise repayment (+9 pp).<br>At ±40%, the strongest differences are among mortgage holders (+23–25 pp).</p>
+<p><a href="#/repayment-burden" class="example-button">Repayment burden</a> <a href="#/heterogeneity-finances" class="example-button">Back to financial circumstances</a></p>
+<aside class="notes">
+<p>The chart shows weighted OLS contrasts in the probability of increasing debt repayment (change in repayment allocation &gt;0.1 pp), relative to no debt, with HC3 robust standard errors. Open points are debt-type-only estimates; filled points additionally control for log household income and liquid-to-income ratio. At ±20%, adjusted differences are +10.4 pp for mortgage only (p&lt;.001), +9.0 pp for consumer debt only (p=.009), and +19.6 pp for both (p&lt;.001). At ±40%, mortgage only (+24.8 pp, p&lt;.001) and both (+23.3 pp, p&lt;.001) remain significant; consumer debt only (+4.5 pp, p=.133) does not. Reconstructed regression N is 950/925 without controls and 853/861 with controls at ±20%/±40%. User-supplied debt-type counts are shown in the table. The ±20% user counts sum to 949, one fewer than the reconstructed unadjusted regression sample; this small discrepancy should be reconciled against the latest analysis output. These are associations, not causal effects of debt type.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="repayment-burden" class="slide level2 center" data-visibility="uncounted">
+<h2>Repayment adjustments differ with the current burden</h2>
+<div class="split even cols">
+<div class="prose">
+<p><strong>Guaranteed income versus actual budget</strong></p>
+<ul>
+<li><strong>89% keep repayment unchanged</strong>, consistent with a fixed commitment.</li>
+<li><strong>11% adjust</strong>, in both directions.</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Debt type</th>
+<th style="text-align: right;">Repay more (N = 103)</th>
+<th style="text-align: right;">Repay less (N = 117)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mortgage only</td>
+<td style="text-align: right;">29%</td>
+<td style="text-align: right;">34%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Consumer debt only</td>
+<td style="text-align: right;">24%</td>
+<td style="text-align: right;">29%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Both</td>
+<td style="text-align: right;">29%</td>
+<td style="text-align: right;">21%</td>
+</tr>
+</tbody>
+</table>
+<p>Debt-type mix: <strong>p = 0.65</strong>.</p>
+</div>
+<div class="prose">
+<p><img data-src="figs/repayment-burden.svg" alt="Repayment shares move from 18.4 to 29.2 percent among households repaying more, and from 27.6 to 17.0 percent among those repaying less, comparing actual with guaranteed-income allocations." width="550" height="280"></p>
+<ul>
+<li>Lower current burden: repay more and cut consumption.</li>
+<li>Higher current burden: repay less and save more.</li>
+</ul>
+</div>
+</div>
+<p><span class="slide-takeaway">Repayment shares converge; debt-type composition is not statistically distinguishable between the two groups.</span></p>
+<p><span class="source">Change = guaranteed-income minus actual allocation. Convergence may partly reflect regression to the mean.</span></p>
+<p><a href="#/hetero-debt" class="example-button">Debt-type repayment results</a> <a href="#/intensive" class="example-button">Back to intensive margin</a></p>
+<aside class="notes">
+<p>Source: user-supplied debt repayment heterogeneity slides. This comparison removes uncertainty relative to the actual budget; it is distinct from the first-spread treatment versus guaranteed income on the preceding slide. The displayed debt-type percentages do not sum to 100%; categories and percentages are reproduced without inferring an unreported residual category. p = 0.65 does not establish equivalent debt-type composition. Burden associations do not identify causality and convergence may reflect regression to the mean.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hetero-shapley" class="slide level2 center" data-visibility="uncounted">
+<h2>Financial dimensions explain different margins</h2>
+<div class="prose">
+<p><strong>±20% spread: Shapley shares of the contribution explained by income, liquidity and debt</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Outcome</th>
+<th>Largest contribution</th>
+<th style="text-align: right;">Share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Saving amount</td>
+<td>Income</td>
+<td style="text-align: right;">47%</td>
+</tr>
+<tr class="even">
+<td>Consumption amount</td>
+<td>Debt</td>
+<td style="text-align: right;">53%</td>
+</tr>
+<tr class="odd">
+<td>Debt repayment amount</td>
+<td>Debt</td>
+<td style="text-align: right;">86%</td>
+</tr>
+<tr class="even">
+<td>Probability of raising saving</td>
+<td>Liquidity</td>
+<td style="text-align: right;">51%</td>
+</tr>
+<tr class="odd">
+<td>Probability of any adjustment</td>
+<td>Liquidity</td>
+<td style="text-align: right;">53%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="#/heterogeneity-finances" class="example-button">Back to financial circumstances</a></p>
+<aside class="notes">
+<p>Source: supplied “Each dimension governs a different margin” slide. These are relative Shapley contributions within the R-squared explained jointly by the three financial dimensions. They are not causal effects or percentages of the full outcome variance. The source’s fig_stage1_hetero_shapley_pp.pdf was not available; the numeric table is reproduced rather than reconstructing missing bars or intervals.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="references" class="slide level2 smaller scrollable" data-visibility="uncounted">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-andre2026people" class="csl-entry" role="listitem">
+Andre, Peter, Felix Chopra, Luca Michels, and Johannes Wohlfart. 2026. CESifo Working Paper.
+</div>
+<div id="ref-ben-david_expectations_2018" class="csl-entry" role="listitem">
+Ben-David, Itzhak, Elyas Fermand, Camelia M. Kuhnen, and Geng Li. 2018. Working {Paper}, National Bureau of Economic Research. <a href="https://doi.org/10.3386/w25336">https://doi.org/10.3386/w25336</a>.
+</div>
+<div id="ref-boehm_five_2025" class="csl-entry" role="listitem">
+Boehm, Johannes, Etienne Fize, and Xavier Jaravel. 2025. <em>American Economic Review</em> 115 (1) : 1–42. <a href="https://doi.org/10.1257/aer.20240138">https://doi.org/10.1257/aer.20240138</a>.
+</div>
+<div id="ref-caplin_subjective_2023" class="csl-entry" role="listitem">
+Caplin, Andrew, Victoria Gregory, Eungik Lee, Søren Leth-Petersen, and Johan Sæverud. 2023. Working {Paper}, National Bureau of Economic Research. <a href="https://doi.org/10.3386/w31019">https://doi.org/10.3386/w31019</a>.
+</div>
+<div id="ref-carroll1994does" class="csl-entry" role="listitem">
+Carroll, Christopher D. 1994. <em>The Quarterly Journal of Economics</em> 109 (1) : 111–147. MIT Press.
+</div>
+<div id="ref-carroll_buffer-stock_1997" class="csl-entry" role="listitem">
+Carroll, Christopher D. 1997. <em>The Quarterly Journal of Economics</em> 112 (1) : 1–55. Oxford University Press. <a href="https://www.jstor.org/stable/2951275">https://www.jstor.org/stable/2951275</a>.
+</div>
+<div id="ref-carroll_precautionary_2009" class="csl-entry" role="listitem">
+Carroll, Christopher D. 2009. <em>Journal of Monetary Economics</em> 56 (6) : 780–790. <a href="https://doi.org/10.1016/j.jmoneco.2009.06.016">https://doi.org/10.1016/j.jmoneco.2009.06.016</a>.
+</div>
+<div id="ref-carroll_does_1994" class="csl-entry" role="listitem">
+Carroll, Christopher D, Jeffrey C Fuhrer, and David W Wilcox. 1994. <em>The American Economic Review</em> 84.
+</div>
+<div id="ref-carroll_buffer-stock_1992" class="csl-entry" role="listitem">
+Carroll, Christopher D., Robert E. Hall, and Stephen P. Zeldes. 1992. <em>Brookings Papers on Economic Activity</em> 1992 (2) : 61. <a href="https://doi.org/10.2307/2534582">https://doi.org/10.2307/2534582</a>.
+</div>
+<div id="ref-carroll_how_1998" class="csl-entry" role="listitem">
+Carroll, Christopher D and Andrew A Samwick. 1998. <em>The Review of Economics and Statistics</em>.
+</div>
+<div id="ref-crossley_eliciting_2025" class="csl-entry" role="listitem">
+Crossley, Thomas, Paul Fisher, Peter Levell, and Hamish Low. 2025. ISSN 0265-8003 (CEPR Discussion Paper DP20440).
+</div>
+<div id="ref-dominitz_using_1997-2" class="csl-entry" role="listitem">
+Dominitz, Jeff and Charles F Manski. 1997. <em>Journal of the American Statistical Association</em> 92.
+</div>
+<div id="ref-fagereng_mpc_2021" class="csl-entry" role="listitem">
+Fagereng, Andreas, Martin B. Holm, and Gisle J. Natvik. 2021. <em>American Economic Journal: Macroeconomics</em> 13 (4) : 1–54. <a href="https://doi.org/10.1257/mac.20190211">https://doi.org/10.1257/mac.20190211</a>.
+</div>
+<div id="ref-gilboa_maxmin_1989" class="csl-entry" role="listitem">
+Gilboa, Itzhak and David Schmeidler. 1989. <em>Journal of Mathematical Economics</em> 18 (2) : 141–153. <a href="https://doi.org/10.1016/0304-4068(89)90018-9">https://doi.org/10.1016/0304-4068(89)90018-9</a>.
+</div>
+<div id="ref-guiso_earnings_1992" class="csl-entry" role="listitem">
+Guiso, Luigi, Tullio Jappelli, and Terlizzese Daniele. 1992. <em>Journal of Monetary Economics</em> 30 (2) : 307–337.
+</div>
+<div id="ref-guiso_empirical_2002" class="csl-entry" role="listitem">
+Guiso, Luigi, Tullio Jappelli, and Luigi Pistaferri. 2002. <em>Journal of Business &amp; Economic Statistics</em> 20 (2) : 241–253. Taylor &amp; Francis. <a href="https://doi.org/10.1198/073500102317351985">https://doi.org/10.1198/073500102317351985</a>.
+</div>
+<div id="ref-ilut_hanks_2025" class="csl-entry" role="listitem">
+Ilut, Cosmin L., Ralph Luetticke, and Martin Schneider. 2025. Working Paper, 33331, National Bureau of Economic Research. <a href="https://www.nber.org/papers/w33331">https://www.nber.org/papers/w33331</a>.
+</div>
+<div id="ref-ilut_ambiguous_2014" class="csl-entry" role="listitem">
+Ilut, Cosmin L. and Martin Schneider. 2014. <em>American Economic Review</em> 104 (8) : 2368–2399. <a href="https://doi.org/10.1257/aer.104.8.2368">https://doi.org/10.1257/aer.104.8.2368</a>.
+</div>
+<div id="ref-jappelli_fiscal_2014" class="csl-entry" role="listitem">
+Jappelli, Tullio and Luigi Pistaferri. 2014. <em>American Economic Journal: Macroeconomics</em> 6 (4) : 107–136. <a href="https://doi.org/10.1257/mac.6.4.107">https://doi.org/10.1257/mac.6.4.107</a>.
+</div>
+<div id="ref-kaplan_marginal_2022" class="csl-entry" role="listitem">
+Kaplan, Greg and Giovanni L. Violante. 2022. <em>Annual Review of Economics</em> 14 (Volume 14, 2022) : 747–775. Annual Reviews. <a href="https://doi.org/10.1146/annurev-economics-080217-053444">https://doi.org/10.1146/annurev-economics-080217-053444</a>.
+</div>
+<div id="ref-kimball_precautionary_1990" class="csl-entry" role="listitem">
+Kimball, Miles S. 1990. Working {Paper}, National Bureau of Economic Research. <a href="https://doi.org/10.3386/w3403">https://doi.org/10.3386/w3403</a>.
+</div>
+<div id="ref-kosar_subjective_2025" class="csl-entry" role="listitem">
+Koşar, Gizem and Davide Melcangi. 2025. {SSRN} {Scholarly} {Paper}, Social Science Research Network. <a href="https://doi.org/10.2139/ssrn.5220724">https://doi.org/10.2139/ssrn.5220724</a>.
+</div>
+<div id="ref-leland_saving_1968" class="csl-entry" role="listitem">
+Leland, Hayne E. 1968. <em>The Quarterly Journal of Economics</em> 82 (3) : 465–473. Oxford University Press. <a href="https://doi.org/10.2307/1879518">https://doi.org/10.2307/1879518</a>.
+</div>
+<div id="ref-manski_survey_2018" class="csl-entry" role="listitem">
+Manski, Charles F. 2018. <em>NBER Macroeconomics Annual</em> 32 : 411–471. The University of Chicago Press. <a href="https://doi.org/10.1086/696061">https://doi.org/10.1086/696061</a>.
+</div>
+<div id="ref-skinner_risky_1988" class="csl-entry" role="listitem">
+Skinner, Jonathan. 1988. <em>Journal of Monetary Economics</em> 22 (2) : 237–255. <a href="https://doi.org/10.1016/0304-3932(88)90021-9">https://doi.org/10.1016/0304-3932(88)90021-9</a>.
+</div>
+<div id="ref-wang_perceived_2023" class="csl-entry" role="listitem">
+Wang, Tao. 2023. Staff Working Paper, 2023-59, Bank of Canada. <a href="https://www.bankofcanada.ca/2023/12/staff-working-paper-2023-59/">https://www.bankofcanada.ca/2023/12/staff-working-paper-2023-59/</a>.
+</div>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="IncomeUncertainty_ExpectationSurvey_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <!-- The deck's charts: the library first, then the stages. Order matters. -->
+    <script src="js/lib.js"></script>
+    <script src="js/deck-charts.js"></script>
+
+    <script src="js/page-numbers.js"></script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
